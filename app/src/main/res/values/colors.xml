@@ -55,4 +55,10 @@
     <color name="chart_protein">#4A90D9</color>
     <color name="chart_carbs">#F0922B</color>
     <color name="chart_fat">#F2C21E</color>
+
+    <!-- Macro value colors (kontras di atas strip terang) -->
+    <color name="macro_kkal">#2E6B4F</color>
+    <color name="macro_protein">#2F73B8</color>
+    <color name="macro_carbs">#C56A12</color>
+    <color name="macro_fat">#B5851C</color>
 </resources>

@@ -112,6 +112,16 @@
         <item name="android:padding">12dp</item>
     </style>
 
+    <!-- Kartu database makanan (vertikal: baris nama di atas, strip makro di bawah) -->
+    <style name="FoodDbCard">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:background">@drawable/bg_card</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">14dp</item>
+    </style>
+
     <style name="FoodLogIconTile">
         <item name="android:layout_width">44dp</item>
         <item name="android:layout_height">44dp</item>
@@ -263,6 +273,22 @@
         <item name="android:textColor">@color/text_dark</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MacroKkal" parent="MacroValue">
+        <item name="android:textColor">@color/macro_kkal</item>
+    </style>
+
+    <style name="MacroProtein" parent="MacroValue">
+        <item name="android:textColor">@color/macro_protein</item>
+    </style>
+
+    <style name="MacroCarbs" parent="MacroValue">
+        <item name="android:textColor">@color/macro_carbs</item>
+    </style>
+
+    <style name="MacroFat" parent="MacroValue">
+        <item name="android:textColor">@color/macro_fat</item>
     </style>
 
     <style name="MacroLabel">

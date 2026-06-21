@@ -316,7 +316,7 @@
                     android:textSize="12sp" />
 
                 <!-- Nasi Putih -->
-                <LinearLayout style="@style/FoodLogCard">
+                <LinearLayout style="@style/FoodDbCard">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -359,29 +359,29 @@
                         android:paddingVertical="10dp">
 
                         <LinearLayout style="@style/MacroCell">
-                            <TextView style="@style/MacroValue" android:text="180" />
+                            <TextView style="@style/MacroKkal" android:text="180" />
                             <TextView style="@style/MacroLabel" android:text="kkal" />
                         </LinearLayout>
 
                         <LinearLayout style="@style/MacroCell">
-                            <TextView style="@style/MacroValue" android:text="4g" />
+                            <TextView style="@style/MacroProtein" android:text="4g" />
                             <TextView style="@style/MacroLabel" android:text="Protein" />
                         </LinearLayout>
 
                         <LinearLayout style="@style/MacroCell">
-                            <TextView style="@style/MacroValue" android:text="40g" />
+                            <TextView style="@style/MacroCarbs" android:text="40g" />
                             <TextView style="@style/MacroLabel" android:text="Karbo" />
                         </LinearLayout>
 
                         <LinearLayout style="@style/MacroCell">
-                            <TextView style="@style/MacroValue" android:text="0.3g" />
+                            <TextView style="@style/MacroFat" android:text="0.3g" />
                             <TextView style="@style/MacroLabel" android:text="Lemak" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
                 <!-- Ayam Goreng -->
-                <LinearLayout style="@style/FoodLogCard">
+                <LinearLayout style="@style/FoodDbCard">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -424,29 +424,29 @@
                         android:paddingVertical="10dp">
 
                         <LinearLayout style="@style/MacroCell">
-                            <TextView style="@style/MacroValue" android:text="250" />
+                            <TextView style="@style/MacroKkal" android:text="250" />
                             <TextView style="@style/MacroLabel" android:text="kkal" />
                         </LinearLayout>
 
                         <LinearLayout style="@style/MacroCell">
-                            <TextView style="@style/MacroValue" android:text="25g" />
+                            <TextView style="@style/MacroProtein" android:text="25g" />
                             <TextView style="@style/MacroLabel" android:text="Protein" />
                         </LinearLayout>
 
                         <LinearLayout style="@style/MacroCell">
-                            <TextView style="@style/MacroValue" android:text="8g" />
+                            <TextView style="@style/MacroCarbs" android:text="8g" />
                             <TextView style="@style/MacroLabel" android:text="Karbo" />
                         </LinearLayout>
 
                         <LinearLayout style="@style/MacroCell">
-                            <TextView style="@style/MacroValue" android:text="14g" />
+                            <TextView style="@style/MacroFat" android:text="14g" />
                             <TextView style="@style/MacroLabel" android:text="Lemak" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
                 <!-- Telur Rebus -->
-                <LinearLayout style="@style/FoodLogCard">
+                <LinearLayout style="@style/FoodDbCard">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -489,29 +489,29 @@
                         android:paddingVertical="10dp">
 
                         <LinearLayout style="@style/MacroCell">
-                            <TextView style="@style/MacroValue" android:text="78" />
+                            <TextView style="@style/MacroKkal" android:text="78" />
                             <TextView style="@style/MacroLabel" android:text="kkal" />
                         </LinearLayout>
 
                         <LinearLayout style="@style/MacroCell">
-                            <TextView style="@style/MacroValue" android:text="6g" />
+                            <TextView style="@style/MacroProtein" android:text="6g" />
                             <TextView style="@style/MacroLabel" android:text="Protein" />
                         </LinearLayout>
 
                         <LinearLayout style="@style/MacroCell">
-                            <TextView style="@style/MacroValue" android:text="0.6g" />
+                            <TextView style="@style/MacroCarbs" android:text="0.6g" />
                             <TextView style="@style/MacroLabel" android:text="Karbo" />
                         </LinearLayout>
 
                         <LinearLayout style="@style/MacroCell">
-                            <TextView style="@style/MacroValue" android:text="5g" />
+                            <TextView style="@style/MacroFat" android:text="5g" />
                             <TextView style="@style/MacroLabel" android:text="Lemak" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
                 <!-- Sayur Bayam -->
-                <LinearLayout style="@style/FoodLogCard">
+                <LinearLayout style="@style/FoodDbCard">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -554,29 +554,29 @@
                         android:paddingVertical="10dp">
 
                         <LinearLayout style="@style/MacroCell">
-                            <TextView style="@style/MacroValue" android:text="23" />
+                            <TextView style="@style/MacroKkal" android:text="23" />
                             <TextView style="@style/MacroLabel" android:text="kkal" />
                         </LinearLayout>
 
                         <LinearLayout style="@style/MacroCell">
-                            <TextView style="@style/MacroValue" android:text="3g" />
+                            <TextView style="@style/MacroProtein" android:text="3g" />
                             <TextView style="@style/MacroLabel" android:text="Protein" />
                         </LinearLayout>
 
                         <LinearLayout style="@style/MacroCell">
-                            <TextView style="@style/MacroValue" android:text="4g" />
+                            <TextView style="@style/MacroCarbs" android:text="4g" />
                             <TextView style="@style/MacroLabel" android:text="Karbo" />
                         </LinearLayout>
 
                         <LinearLayout style="@style/MacroCell">
-                            <TextView style="@style/MacroValue" android:text="0.3g" />
+                            <TextView style="@style/MacroFat" android:text="0.3g" />
                             <TextView style="@style/MacroLabel" android:text="Lemak" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
                 <!-- Tempe Goreng -->
-                <LinearLayout style="@style/FoodLogCard">
+                <LinearLayout style="@style/FoodDbCard">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -619,29 +619,29 @@
                         android:paddingVertical="10dp">
 
                         <LinearLayout style="@style/MacroCell">
-                            <TextView style="@style/MacroValue" android:text="150" />
+                            <TextView style="@style/MacroKkal" android:text="150" />
                             <TextView style="@style/MacroLabel" android:text="kkal" />
                         </LinearLayout>
 
                         <LinearLayout style="@style/MacroCell">
-                            <TextView style="@style/MacroValue" android:text="14g" />
+                            <TextView style="@style/MacroProtein" android:text="14g" />
                             <TextView style="@style/MacroLabel" android:text="Protein" />
                         </LinearLayout>
 
                         <LinearLayout style="@style/MacroCell">
-                            <TextView style="@style/MacroValue" android:text="9g" />
+                            <TextView style="@style/MacroCarbs" android:text="9g" />
                             <TextView style="@style/MacroLabel" android:text="Karbo" />
                         </LinearLayout>
 
                         <LinearLayout style="@style/MacroCell">
-                            <TextView style="@style/MacroValue" android:text="8g" />
+                            <TextView style="@style/MacroFat" android:text="8g" />
                             <TextView style="@style/MacroLabel" android:text="Lemak" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
                 <!-- Pisang -->
-                <LinearLayout style="@style/FoodLogCard">
+                <LinearLayout style="@style/FoodDbCard">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -684,22 +684,22 @@
                         android:paddingVertical="10dp">
 
                         <LinearLayout style="@style/MacroCell">
-                            <TextView style="@style/MacroValue" android:text="105" />
+                            <TextView style="@style/MacroKkal" android:text="105" />
                             <TextView style="@style/MacroLabel" android:text="kkal" />
                         </LinearLayout>
 
                         <LinearLayout style="@style/MacroCell">
-                            <TextView style="@style/MacroValue" android:text="1.3g" />
+                            <TextView style="@style/MacroProtein" android:text="1.3g" />
                             <TextView style="@style/MacroLabel" android:text="Protein" />
                         </LinearLayout>
 
                         <LinearLayout style="@style/MacroCell">
-                            <TextView style="@style/MacroValue" android:text="27g" />
+                            <TextView style="@style/MacroCarbs" android:text="27g" />
                             <TextView style="@style/MacroLabel" android:text="Karbo" />
                         </LinearLayout>
 
                         <LinearLayout style="@style/MacroCell">
-                            <TextView style="@style/MacroValue" android:text="0.4g" />
+                            <TextView style="@style/MacroFat" android:text="0.4g" />
                             <TextView style="@style/MacroLabel" android:text="Lemak" />
                         </LinearLayout>
                     </LinearLayout>
