@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/recoRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen_bg"
+    android:orientation="vertical"
+    tools:context=".ui.recommendation.RecommendationActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_dashboard_header"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="24dp"
+                android:paddingBottom="28dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🍱"
+                    android:textSize="40sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/menu_title"
+                    android:textColor="@color/text_on_dark"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/menu_subtitle"
+                    android:textColor="@color/text_on_dark_muted"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Body -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Target kalori card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_input_card"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <FrameLayout
+                            android:layout_width="34dp"
+                            android:layout_height="34dp"
+                            android:background="@drawable/bg_circle_green">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_chart"
+                                app:tint="@color/white" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/reco_target_title"
+                            android:textColor="@color/text_dark"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/reco_target_value"
+                        android:textColor="@color/green_dark"
+                        android:textSize="34sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/reco_target_sub"
+                        android:textColor="@color/text_muted"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <!-- ===== Sarapan ===== -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_restaurant"
+                        app:tint="@color/green_dark" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/reco_breakfast"
+                        android:textColor="@color/text_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_time_pill"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="5dp">
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:layout_marginEnd="4dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_clock" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/reco_time_breakfast"
+                            android:textColor="@color/text_muted"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout style="@style/RecoFoodCard">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Oatmeal dengan Buah &amp; Kacang" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" />
+                        <ImageView android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="@null" android:src="@drawable/ic_chevron_right" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:orientation="horizontal">
+                        <TextView style="@style/RecoTag" android:text="Tinggi Serat" />
+                        <Space android:layout_width="8dp" android:layout_height="1dp" />
+                        <TextView style="@style/RecoTag" android:text="Energi Tahan Lama" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:background="@drawable/bg_macro_strip" android:orientation="horizontal" android:paddingVertical="10dp">
+                        <LinearLayout style="@style/MacroCell"><TextView style="@style/MacroValue" android:text="250" /><TextView style="@style/MacroLabel" android:text="kkal" /></LinearLayout>
+                        <LinearLayout style="@style/MacroCell"><TextView style="@style/MacroValue" android:text="12g" /><TextView style="@style/MacroLabel" android:text="Protein" /></LinearLayout>
+                        <LinearLayout style="@style/MacroCell"><TextView style="@style/MacroValue" android:text="55g" /><TextView style="@style/MacroLabel" android:text="Karbo" /></LinearLayout>
+                        <LinearLayout style="@style/MacroCell"><TextView style="@style/MacroValue" android:text="8g" /><TextView style="@style/MacroLabel" android:text="Lemak" /></LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout style="@style/RecoFoodCard">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Nasi Merah + Telur + Sayur" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" />
+                        <ImageView android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="@null" android:src="@drawable/ic_chevron_right" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:orientation="horizontal">
+                        <TextView style="@style/RecoTag" android:text="Protein Tinggi" />
+                        <Space android:layout_width="8dp" android:layout_height="1dp" />
+                        <TextView style="@style/RecoTag" android:text="Karbohidrat Kompleks" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:background="@drawable/bg_macro_strip" android:orientation="horizontal" android:paddingVertical="10dp">
+                        <LinearLayout style="@style/MacroCell"><TextView style="@style/MacroValue" android:text="420" /><TextView style="@style/MacroLabel" android:text="kkal" /></LinearLayout>
+                        <LinearLayout style="@style/MacroCell"><TextView style="@style/MacroValue" android:text="18g" /><TextView style="@style/MacroLabel" android:text="Protein" /></LinearLayout>
+                        <LinearLayout style="@style/MacroCell"><TextView style="@style/MacroValue" android:text="60g" /><TextView style="@style/MacroLabel" android:text="Karbo" /></LinearLayout>
+                        <LinearLayout style="@style/MacroCell"><TextView style="@style/MacroValue" android:text="10g" /><TextView style="@style/MacroLabel" android:text="Lemak" /></LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- ===== Makan Siang ===== -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_restaurant"
+                        app:tint="@color/green_dark" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/reco_lunch"
+                        android:textColor="@color/text_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_time_pill"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="5dp">
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:layout_marginEnd="4dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_clock" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/reco_time_lunch"
+                            android:textColor="@color/text_muted"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout style="@style/RecoFoodCard">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Ayam Panggang + Nasi Merah + Sayur" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" />
+                        <ImageView android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="@null" android:src="@drawable/ic_chevron_right" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:orientation="horizontal">
+                        <TextView style="@style/RecoTag" android:text="Protein Tinggi" />
+                        <Space android:layout_width="8dp" android:layout_height="1dp" />
+                        <TextView style="@style/RecoTag" android:text="Rendah Lemak" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:background="@drawable/bg_macro_strip" android:orientation="horizontal" android:paddingVertical="10dp">
+                        <LinearLayout style="@style/MacroCell"><TextView style="@style/MacroValue" android:text="550" /><TextView style="@style/MacroLabel" android:text="kkal" /></LinearLayout>
+                        <LinearLayout style="@style/MacroCell"><TextView style="@style/MacroValue" android:text="35g" /><TextView style="@style/MacroLabel" android:text="Protein" /></LinearLayout>
+                        <LinearLayout style="@style/MacroCell"><TextView style="@style/MacroValue" android:text="65g" /><TextView style="@style/MacroLabel" android:text="Karbo" /></LinearLayout>
+                        <LinearLayout style="@style/MacroCell"><TextView style="@style/MacroValue" android:text="12g" /><TextView style="@style/MacroLabel" android:text="Lemak" /></LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout style="@style/RecoFoodCard">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Ikan Salmon + Kentang + Brokoli" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" />
+                        <ImageView android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="@null" android:src="@drawable/ic_chevron_right" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:orientation="horizontal">
+                        <TextView style="@style/RecoTag" android:text="Omega-3" />
+                        <Space android:layout_width="8dp" android:layout_height="1dp" />
+                        <TextView style="@style/RecoTag" android:text="Vitamin D" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:background="@drawable/bg_macro_strip" android:orientation="horizontal" android:paddingVertical="10dp">
+                        <LinearLayout style="@style/MacroCell"><TextView style="@style/MacroValue" android:text="480" /><TextView style="@style/MacroLabel" android:text="kkal" /></LinearLayout>
+                        <LinearLayout style="@style/MacroCell"><TextView style="@style/MacroValue" android:text="32g" /><TextView style="@style/MacroLabel" android:text="Protein" /></LinearLayout>
+                        <LinearLayout style="@style/MacroCell"><TextView style="@style/MacroValue" android:text="45g" /><TextView style="@style/MacroLabel" android:text="Karbo" /></LinearLayout>
+                        <LinearLayout style="@style/MacroCell"><TextView style="@style/MacroValue" android:text="15g" /><TextView style="@style/MacroLabel" android:text="Lemak" /></LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- ===== Makan Malam ===== -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_restaurant"
+                        app:tint="@color/green_dark" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/reco_dinner"
+                        android:textColor="@color/text_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_time_pill"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="5dp">
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:layout_marginEnd="4dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_clock" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/reco_time_dinner"
+                            android:textColor="@color/text_muted"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout style="@style/RecoFoodCard">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Sup Ayam + Roti Gandum" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" />
+                        <ImageView android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="@null" android:src="@drawable/ic_chevron_right" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:orientation="horizontal">
+                        <TextView style="@style/RecoTag" android:text="Mudah Dicerna" />
+                        <Space android:layout_width="8dp" android:layout_height="1dp" />
+                        <TextView style="@style/RecoTag" android:text="Protein Tinggi" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:background="@drawable/bg_macro_strip" android:orientation="horizontal" android:paddingVertical="10dp">
+                        <LinearLayout style="@style/MacroCell"><TextView style="@style/MacroValue" android:text="360" /><TextView style="@style/MacroLabel" android:text="kkal" /></LinearLayout>
+                        <LinearLayout style="@style/MacroCell"><TextView style="@style/MacroValue" android:text="28g" /><TextView style="@style/MacroLabel" android:text="Protein" /></LinearLayout>
+                        <LinearLayout style="@style/MacroCell"><TextView style="@style/MacroValue" android:text="42g" /><TextView style="@style/MacroLabel" android:text="Karbo" /></LinearLayout>
+                        <LinearLayout style="@style/MacroCell"><TextView style="@style/MacroValue" android:text="8g" /><TextView style="@style/MacroLabel" android:text="Lemak" /></LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout style="@style/RecoFoodCard">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Tahu Tempe + Sayur Tumis" android:textColor="@color/text_dark" android:textSize="15sp" android:textStyle="bold" />
+                        <ImageView android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="@null" android:src="@drawable/ic_chevron_right" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:orientation="horizontal">
+                        <TextView style="@style/RecoTag" android:text="Plant-Based" />
+                        <Space android:layout_width="8dp" android:layout_height="1dp" />
+                        <TextView style="@style/RecoTag" android:text="Rendah Kalori" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:background="@drawable/bg_macro_strip" android:orientation="horizontal" android:paddingVertical="10dp">
+                        <LinearLayout style="@style/MacroCell"><TextView style="@style/MacroValue" android:text="320" /><TextView style="@style/MacroLabel" android:text="kkal" /></LinearLayout>
+                        <LinearLayout style="@style/MacroCell"><TextView style="@style/MacroValue" android:text="22g" /><TextView style="@style/MacroLabel" android:text="Protein" /></LinearLayout>
+                        <LinearLayout style="@style/MacroCell"><TextView style="@style/MacroValue" android:text="35g" /><TextView style="@style/MacroLabel" android:text="Karbo" /></LinearLayout>
+                        <LinearLayout style="@style/MacroCell"><TextView style="@style/MacroValue" android:text="10g" /><TextView style="@style/MacroLabel" android:text="Lemak" /></LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Ubah Data Pribadi -->
+                <Button
+                    android:id="@+id/btnEditData"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/bg_button_outline"
+                    android:stateListAnimator="@null"
+                    android:text="@string/reco_edit_data"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_dark"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom navigation bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/surface"
+        android:elevation="12dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="8dp">
+
+        <LinearLayout
+            android:id="@+id/navHome"
+            style="@style/NavItem">
+
+            <LinearLayout style="@style/NavIconWrap">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/nav_home"
+                    android:src="@drawable/ic_home"
+                    app:tint="@color/nav_inactive" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/nav_home"
+                android:textColor="@color/nav_inactive" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navLog"
+            style="@style/NavItem">
+
+            <LinearLayout style="@style/NavIconWrap">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/nav_log"
+                    android:src="@drawable/ic_apple_filled"
+                    app:tint="@color/nav_inactive" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/nav_log"
+                android:textColor="@color/nav_inactive" />
+        </LinearLayout>
+
+        <!-- Menu (active) -->
+        <LinearLayout
+            android:id="@+id/navMenu"
+            style="@style/NavItem">
+
+            <LinearLayout
+                style="@style/NavIconWrap"
+                android:background="@drawable/bg_nav_active">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/nav_menu"
+                    android:src="@drawable/ic_restaurant"
+                    app:tint="@color/nav_active" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/nav_menu"
+                android:textColor="@color/nav_active"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navChart"
+            style="@style/NavItem">
+
+            <LinearLayout style="@style/NavIconWrap">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/nav_chart"
+                    android:src="@drawable/ic_chart"
+                    app:tint="@color/nav_inactive" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/nav_chart"
+                android:textColor="@color/nav_inactive" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navProfile"
+            style="@style/NavItem">
+
+            <LinearLayout style="@style/NavIconWrap">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/nav_profile"
+                    android:src="@drawable/ic_person"
+                    app:tint="@color/nav_inactive" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/nav_profile"
+                android:textColor="@color/nav_inactive" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- NutriGuide brand palette -->
+    <color name="gradient_start">#6E8E6A</color>
+    <color name="gradient_center">#3E6E72</color>
+    <color name="gradient_end">#1F4A55</color>
+
+    <color name="teal_primary">#1F4A55</color>
+    <color name="text_on_dark">#FFFFFFFF</color>
+    <color name="text_on_dark_muted">#CCE6EAEC</color>
+    <color name="accent_pink">#E8A0A8</color>
+
+    <color name="circle_translucent">#33FFFFFF</color>
+    <color name="chip_fill">#22FFFFFF</color>
+    <color name="chip_stroke">#55FFFFFF</color>
+
+    <!-- Auth & dashboard -->
+    <color name="screen_bg">#F4F6F7</color>
+    <color name="surface">#FFFFFFFF</color>
+
+    <color name="text_dark">#1F2A2E</color>
+    <color name="text_muted">#6B7780</color>
+    <color name="field_bg">#EEF0F2</color>
+    <color name="field_hint">#9AA0A6</color>
+    <color name="field_icon">#9AA0A6</color>
+
+    <color name="tab_track">#E8EAEC</color>
+    <color name="tab_active">#FFFFFFFF</color>
+
+    <color name="green_button_start">#8CC08A</color>
+    <color name="green_button_end">#4E8A6B</color>
+    <color name="green_dark">#3E7D52</color>
+
+    <color name="badge_green_bg">#D9EAD9</color>
+    <color name="badge_green_text">#3E7D52</color>
+
+    <color name="progress_track">#3AFFFFFF</color>
+    <color name="divider">#ECEEF0</color>
+
+    <color name="nav_active">#2E6B4F</color>
+    <color name="nav_inactive">#9AA6AC</color>
+
+    <!-- Profil -->
+    <color name="danger_red">#E0524D</color>
+    <color name="pastel_green">#1E9E6A</color>
+    <color name="pastel_blue">#4A90D9</color>
+    <color name="pastel_purple">#8B6DD9</color>
+    <color name="pastel_orange">#E8943A</color>
+    <color name="pastel_red">#E0524D</color>
+
+    <!-- Chart series -->
+    <color name="chart_protein">#4A90D9</color>
+    <color name="chart_carbs">#F0922B</color>
+    <color name="chart_fat">#F2C21E</color>
+</resources>

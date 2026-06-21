@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profileRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen_bg"
+    android:orientation="vertical"
+    tools:context=".ui.profile.ProfileActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_dashboard_header"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingTop="28dp"
+                android:paddingBottom="56dp">
+
+                <FrameLayout
+                    android:layout_width="96dp"
+                    android:layout_height="96dp">
+
+                    <FrameLayout
+                        android:layout_width="96dp"
+                        android:layout_height="96dp"
+                        android:background="@drawable/bg_logo_circle_light">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/profile_initials"
+                            android:textColor="@color/text_on_dark"
+                            android:textSize="30sp"
+                            android:textStyle="bold" />
+                    </FrameLayout>
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="bottom|end"
+                        android:background="@drawable/bg_status_dot" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/profile_name"
+                    android:textColor="@color/text_on_dark"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/profile_email"
+                    android:textColor="@color/text_on_dark_muted"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_sdg_chip"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="7dp"
+                    android:text="@string/profile_member"
+                    android:textColor="@color/text_on_dark"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Body -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingBottom="16dp">
+
+                <!-- Stats card (overlapping header) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-56dp"
+                    android:background="@drawable/bg_card"
+                    android:baselineAligned="false"
+                    android:elevation="6dp"
+                    android:orientation="horizontal"
+                    android:paddingVertical="16dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_circle_lt_red">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_calendar"
+                                app:tint="@color/pastel_red" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="@string/profile_stat_active"
+                            android:textColor="@color/text_dark"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/profile_stat_active_label"
+                            android:textColor="@color/text_muted"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_circle_lt_green">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_check"
+                                app:tint="@color/pastel_green" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="@string/profile_stat_compliance"
+                            android:textColor="@color/text_dark"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/profile_stat_compliance_label"
+                            android:textColor="@color/text_muted"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_circle_lt_orange">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_target"
+                                app:tint="@color/pastel_orange" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="@string/profile_stat_progress"
+                            android:textColor="@color/text_dark"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/profile_stat_progress_label"
+                            android:textColor="@color/text_muted"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- ===== Informasi Pribadi ===== -->
+                <TextView
+                    style="@style/ProfileSectionLabel"
+                    android:text="@string/profile_personal" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical"
+                    android:paddingVertical="4dp">
+
+                    <LinearLayout style="@style/InfoRow">
+                        <FrameLayout style="@style/InfoIconTile" android:background="@drawable/bg_circle_lt_green">
+                            <ImageView style="@style/InfoIcon" android:src="@drawable/ic_person" app:tint="@color/pastel_green" />
+                        </FrameLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
+                            <TextView style="@style/InfoRowLabel" android:text="@string/profile_label_name" />
+                            <TextView style="@style/InfoRowValue" android:text="@string/profile_name" />
+                        </LinearLayout>
+                        <ImageView style="@style/InfoChevron" />
+                    </LinearLayout>
+
+                    <View style="@style/InfoDivider" />
+
+                    <LinearLayout style="@style/InfoRow">
+                        <FrameLayout style="@style/InfoIconTile" android:background="@drawable/bg_circle_lt_blue">
+                            <ImageView style="@style/InfoIcon" android:src="@drawable/ic_email" app:tint="@color/pastel_blue" />
+                        </FrameLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
+                            <TextView style="@style/InfoRowLabel" android:text="@string/profile_label_email" />
+                            <TextView style="@style/InfoRowValue" android:text="@string/profile_email" />
+                        </LinearLayout>
+                        <ImageView style="@style/InfoChevron" />
+                    </LinearLayout>
+
+                    <View style="@style/InfoDivider" />
+
+                    <LinearLayout style="@style/InfoRow">
+                        <FrameLayout style="@style/InfoIconTile" android:background="@drawable/bg_circle_lt_purple">
+                            <ImageView style="@style/InfoIcon" android:src="@drawable/ic_phone" app:tint="@color/pastel_purple" />
+                        </FrameLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
+                            <TextView style="@style/InfoRowLabel" android:text="@string/profile_label_phone" />
+                            <TextView style="@style/InfoRowValue" android:text="@string/profile_value_phone" />
+                        </LinearLayout>
+                        <ImageView style="@style/InfoChevron" />
+                    </LinearLayout>
+
+                    <View style="@style/InfoDivider" />
+
+                    <LinearLayout style="@style/InfoRow">
+                        <FrameLayout style="@style/InfoIconTile" android:background="@drawable/bg_circle_lt_orange">
+                            <ImageView style="@style/InfoIcon" android:src="@drawable/ic_calendar" app:tint="@color/pastel_orange" />
+                        </FrameLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
+                            <TextView style="@style/InfoRowLabel" android:text="@string/profile_label_birth" />
+                            <TextView style="@style/InfoRowValue" android:text="@string/profile_value_birth" />
+                        </LinearLayout>
+                        <ImageView style="@style/InfoChevron" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- ===== Data Kesehatan ===== -->
+                <TextView
+                    style="@style/ProfileSectionLabel"
+                    android:text="@string/profile_health" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical"
+                    android:paddingVertical="4dp">
+
+                    <LinearLayout style="@style/InfoRow">
+                        <FrameLayout style="@style/InfoIconTile" android:background="@drawable/bg_circle_lt_green">
+                            <ImageView style="@style/InfoIcon" android:src="@drawable/ic_activity" app:tint="@color/pastel_green" />
+                        </FrameLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
+                            <TextView style="@style/InfoRowLabel" android:text="@string/profile_label_weight" />
+                            <TextView style="@style/InfoRowValue" android:text="@string/profile_value_weight" />
+                        </LinearLayout>
+                        <ImageView style="@style/InfoChevron" />
+                    </LinearLayout>
+
+                    <View style="@style/InfoDivider" />
+
+                    <LinearLayout style="@style/InfoRow">
+                        <FrameLayout style="@style/InfoIconTile" android:background="@drawable/bg_circle_lt_blue">
+                            <ImageView style="@style/InfoIcon" android:src="@drawable/ic_activity" app:tint="@color/pastel_blue" />
+                        </FrameLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
+                            <TextView style="@style/InfoRowLabel" android:text="@string/profile_label_height" />
+                            <TextView style="@style/InfoRowValue" android:text="@string/profile_value_height" />
+                        </LinearLayout>
+                        <ImageView style="@style/InfoChevron" />
+                    </LinearLayout>
+
+                    <View style="@style/InfoDivider" />
+
+                    <LinearLayout style="@style/InfoRow">
+                        <FrameLayout style="@style/InfoIconTile" android:background="@drawable/bg_circle_lt_orange">
+                            <ImageView style="@style/InfoIcon" android:src="@drawable/ic_target" app:tint="@color/pastel_orange" />
+                        </FrameLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
+                            <TextView style="@style/InfoRowLabel" android:text="@string/profile_label_nutrition" />
+                            <TextView style="@style/InfoRowValue" android:text="@string/profile_value_nutrition" />
+                        </LinearLayout>
+                        <ImageView style="@style/InfoChevron" />
+                    </LinearLayout>
+
+                    <View style="@style/InfoDivider" />
+
+                    <LinearLayout style="@style/InfoRow">
+                        <FrameLayout style="@style/InfoIconTile" android:background="@drawable/bg_circle_lt_purple">
+                            <ImageView style="@style/InfoIcon" android:src="@drawable/ic_activity" app:tint="@color/pastel_purple" />
+                        </FrameLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
+                            <TextView style="@style/InfoRowLabel" android:text="@string/profile_label_activity" />
+                            <TextView style="@style/InfoRowValue" android:text="@string/profile_value_activity" />
+                        </LinearLayout>
+                        <ImageView style="@style/InfoChevron" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- ===== Pengaturan ===== -->
+                <TextView
+                    style="@style/ProfileSectionLabel"
+                    android:text="@string/profile_settings" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical"
+                    android:paddingVertical="4dp">
+
+                    <LinearLayout android:id="@+id/rowNotif" style="@style/InfoRow">
+                        <FrameLayout style="@style/InfoIconTile" android:background="@drawable/bg_circle_lt_blue">
+                            <ImageView style="@style/InfoIcon" android:src="@drawable/ic_bell" app:tint="@color/pastel_blue" />
+                        </FrameLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
+                            <TextView style="@style/InfoRowValue" android:text="@string/profile_notif" />
+                            <TextView style="@style/InfoRowLabel" android:text="@string/profile_notif_sub" />
+                        </LinearLayout>
+                        <ImageView style="@style/InfoChevron" />
+                    </LinearLayout>
+
+                    <View style="@style/InfoDivider" />
+
+                    <LinearLayout android:id="@+id/rowSecurity" style="@style/InfoRow">
+                        <FrameLayout style="@style/InfoIconTile" android:background="@drawable/bg_circle_lt_orange">
+                            <ImageView style="@style/InfoIcon" android:src="@drawable/ic_lock" app:tint="@color/pastel_orange" />
+                        </FrameLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
+                            <TextView style="@style/InfoRowValue" android:text="@string/profile_security" />
+                            <TextView style="@style/InfoRowLabel" android:text="@string/profile_security_sub" />
+                        </LinearLayout>
+                        <ImageView style="@style/InfoChevron" />
+                    </LinearLayout>
+
+                    <View style="@style/InfoDivider" />
+
+                    <LinearLayout android:id="@+id/rowLogout" style="@style/InfoRow">
+                        <FrameLayout style="@style/InfoIconTile" android:background="@drawable/bg_circle_lt_red">
+                            <ImageView style="@style/InfoIcon" android:src="@drawable/ic_logout" app:tint="@color/danger_red" />
+                        </FrameLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/profile_logout" android:textColor="@color/danger_red" android:textSize="15sp" android:textStyle="bold" />
+                            <TextView style="@style/InfoRowLabel" android:text="@string/profile_logout_sub" />
+                        </LinearLayout>
+                        <ImageView style="@style/InfoChevron" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom navigation bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/surface"
+        android:elevation="12dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="8dp">
+
+        <LinearLayout
+            android:id="@+id/navHome"
+            style="@style/NavItem">
+
+            <LinearLayout style="@style/NavIconWrap">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/nav_home"
+                    android:src="@drawable/ic_home"
+                    app:tint="@color/nav_inactive" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/nav_home"
+                android:textColor="@color/nav_inactive" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navLog"
+            style="@style/NavItem">
+
+            <LinearLayout style="@style/NavIconWrap">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/nav_log"
+                    android:src="@drawable/ic_apple_filled"
+                    app:tint="@color/nav_inactive" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/nav_log"
+                android:textColor="@color/nav_inactive" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navMenu"
+            style="@style/NavItem">
+
+            <LinearLayout style="@style/NavIconWrap">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/nav_menu"
+                    android:src="@drawable/ic_restaurant"
+                    app:tint="@color/nav_inactive" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/nav_menu"
+                android:textColor="@color/nav_inactive" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navChart"
+            style="@style/NavItem">
+
+            <LinearLayout style="@style/NavIconWrap">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/nav_chart"
+                    android:src="@drawable/ic_chart"
+                    app:tint="@color/nav_inactive" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/nav_chart"
+                android:textColor="@color/nav_inactive" />
+        </LinearLayout>
+
+        <!-- Profil (active) -->
+        <LinearLayout
+            android:id="@+id/navProfile"
+            style="@style/NavItem">
+
+            <LinearLayout
+                style="@style/NavIconWrap"
+                android:background="@drawable/bg_nav_active">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/nav_profile"
+                    android:src="@drawable/ic_person"
+                    app:tint="@color/nav_active" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/nav_profile"
+                android:textColor="@color/nav_active"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

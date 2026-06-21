@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/logRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen_bg"
+    android:orientation="vertical"
+    tools:context=".ui.log.LogActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_dashboard_header"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="24dp"
+                android:paddingBottom="24dp">
+
+                <FrameLayout
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_circle_icon_dark">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_restaurant" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/log_title"
+                    android:textColor="@color/text_on_dark"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/log_subtitle"
+                    android:textColor="@color/text_on_dark_muted"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Body -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/log_choose_meal"
+                    android:textColor="@color/text_muted"
+                    android:textSize="13sp" />
+
+                <!-- Meal time tabs -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_tab_track"
+                    android:orientation="horizontal"
+                    android:padding="4dp">
+
+                    <TextView
+                        android:id="@+id/tabSarapan"
+                        style="@style/MealTab"
+                        android:background="@drawable/bg_tab_active"
+                        android:text="@string/log_meal_breakfast"
+                        android:textColor="@color/text_dark"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tabSiang"
+                        style="@style/MealTab"
+                        android:text="@string/log_meal_lunch" />
+
+                    <TextView
+                        android:id="@+id/tabMalam"
+                        style="@style/MealTab"
+                        android:text="@string/log_meal_dinner" />
+
+                    <TextView
+                        android:id="@+id/tabSnack"
+                        style="@style/MealTab"
+                        android:text="@string/log_meal_snack" />
+                </LinearLayout>
+
+                <!-- Manual input card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_input_card"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <FrameLayout
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_circle_green">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_add" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="@string/log_manual_input"
+                            android:textColor="@color/text_dark"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/LogFieldLabel"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/log_food_name" />
+
+                    <EditText
+                        android:id="@+id/inputFoodName"
+                        style="@style/LogInput"
+                        android:hint="@string/log_food_name_hint"
+                        android:inputType="text"
+                        android:autofillHints="name" />
+
+                    <!-- Kalori & Porsi -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/LogFieldLabel"
+                                android:text="@string/log_calorie" />
+
+                            <EditText
+                                android:id="@+id/inputCalorie"
+                                style="@style/LogInput"
+                                android:hint="@string/log_zero"
+                                android:inputType="number" />
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="12dp"
+                            android:layout_height="1dp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/LogFieldLabel"
+                                android:text="@string/log_portion" />
+
+                            <EditText
+                                android:id="@+id/inputPortion"
+                                style="@style/LogInput"
+                                android:hint="@string/log_portion_hint"
+                                android:inputType="text" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Protein, Karbo, Lemak -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/LogFieldLabel"
+                                android:text="@string/log_protein" />
+
+                            <EditText
+                                android:id="@+id/inputProtein"
+                                style="@style/LogInput"
+                                android:hint="@string/log_zero"
+                                android:inputType="numberDecimal" />
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="10dp"
+                            android:layout_height="1dp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/LogFieldLabel"
+                                android:text="@string/log_carbs" />
+
+                            <EditText
+                                android:id="@+id/inputCarbs"
+                                style="@style/LogInput"
+                                android:hint="@string/log_zero"
+                                android:inputType="numberDecimal" />
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="10dp"
+                            android:layout_height="1dp" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/LogFieldLabel"
+                                android:text="@string/log_fat" />
+
+                            <EditText
+                                android:id="@+id/inputFat"
+                                style="@style/LogInput"
+                                android:hint="@string/log_zero"
+                                android:inputType="numberDecimal" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnAddManual"
+                        style="@style/PrimaryGreenButton"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/log_meal_breakfast" />
+                </LinearLayout>
+
+                <!-- Search -->
+                <LinearLayout
+                    style="@style/FieldBox"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_field_white">
+
+                    <ImageView
+                        style="@style/FieldIcon"
+                        android:src="@drawable/ic_search" />
+
+                    <EditText
+                        android:id="@+id/inputSearch"
+                        style="@style/FieldInput"
+                        android:hint="@string/log_search_hint"
+                        android:inputType="text" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="@string/log_db_title"
+                    android:textColor="@color/text_dark"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/log_db_subtitle"
+                    android:textColor="@color/text_muted"
+                    android:textSize="12sp" />
+
+                <!-- Nasi Putih -->
+                <LinearLayout style="@style/FoodLogCard">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView style="@style/FoodDbName" android:text="Nasi Putih" />
+
+                            <TextView style="@style/FoodDbServing" android:text="1 porsi (150g)" />
+                        </LinearLayout>
+
+                        <FrameLayout
+                            android:id="@+id/btnAddFood1"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_add_button">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_add" />
+                        </FrameLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_macro_strip"
+                        android:orientation="horizontal"
+                        android:paddingVertical="10dp">
+
+                        <LinearLayout style="@style/MacroCell">
+                            <TextView style="@style/MacroValue" android:text="180" />
+                            <TextView style="@style/MacroLabel" android:text="kkal" />
+                        </LinearLayout>
+
+                        <LinearLayout style="@style/MacroCell">
+                            <TextView style="@style/MacroValue" android:text="4g" />
+                            <TextView style="@style/MacroLabel" android:text="Protein" />
+                        </LinearLayout>
+
+                        <LinearLayout style="@style/MacroCell">
+                            <TextView style="@style/MacroValue" android:text="40g" />
+                            <TextView style="@style/MacroLabel" android:text="Karbo" />
+                        </LinearLayout>
+
+                        <LinearLayout style="@style/MacroCell">
+                            <TextView style="@style/MacroValue" android:text="0.3g" />
+                            <TextView style="@style/MacroLabel" android:text="Lemak" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Ayam Goreng -->
+                <LinearLayout style="@style/FoodLogCard">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView style="@style/FoodDbName" android:text="Ayam Goreng" />
+
+                            <TextView style="@style/FoodDbServing" android:text="1 potong (100g)" />
+                        </LinearLayout>
+
+                        <FrameLayout
+                            android:id="@+id/btnAddFood2"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_add_button">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_add" />
+                        </FrameLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_macro_strip"
+                        android:orientation="horizontal"
+                        android:paddingVertical="10dp">
+
+                        <LinearLayout style="@style/MacroCell">
+                            <TextView style="@style/MacroValue" android:text="250" />
+                            <TextView style="@style/MacroLabel" android:text="kkal" />
+                        </LinearLayout>
+
+                        <LinearLayout style="@style/MacroCell">
+                            <TextView style="@style/MacroValue" android:text="25g" />
+                            <TextView style="@style/MacroLabel" android:text="Protein" />
+                        </LinearLayout>
+
+                        <LinearLayout style="@style/MacroCell">
+                            <TextView style="@style/MacroValue" android:text="8g" />
+                            <TextView style="@style/MacroLabel" android:text="Karbo" />
+                        </LinearLayout>
+
+                        <LinearLayout style="@style/MacroCell">
+                            <TextView style="@style/MacroValue" android:text="14g" />
+                            <TextView style="@style/MacroLabel" android:text="Lemak" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Telur Rebus -->
+                <LinearLayout style="@style/FoodLogCard">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView style="@style/FoodDbName" android:text="Telur Rebus" />
+
+                            <TextView style="@style/FoodDbServing" android:text="1 butir" />
+                        </LinearLayout>
+
+                        <FrameLayout
+                            android:id="@+id/btnAddFood3"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_add_button">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_add" />
+                        </FrameLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_macro_strip"
+                        android:orientation="horizontal"
+                        android:paddingVertical="10dp">
+
+                        <LinearLayout style="@style/MacroCell">
+                            <TextView style="@style/MacroValue" android:text="78" />
+                            <TextView style="@style/MacroLabel" android:text="kkal" />
+                        </LinearLayout>
+
+                        <LinearLayout style="@style/MacroCell">
+                            <TextView style="@style/MacroValue" android:text="6g" />
+                            <TextView style="@style/MacroLabel" android:text="Protein" />
+                        </LinearLayout>
+
+                        <LinearLayout style="@style/MacroCell">
+                            <TextView style="@style/MacroValue" android:text="0.6g" />
+                            <TextView style="@style/MacroLabel" android:text="Karbo" />
+                        </LinearLayout>
+
+                        <LinearLayout style="@style/MacroCell">
+                            <TextView style="@style/MacroValue" android:text="5g" />
+                            <TextView style="@style/MacroLabel" android:text="Lemak" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Sayur Bayam -->
+                <LinearLayout style="@style/FoodLogCard">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView style="@style/FoodDbName" android:text="Sayur Bayam" />
+
+                            <TextView style="@style/FoodDbServing" android:text="1 mangkok" />
+                        </LinearLayout>
+
+                        <FrameLayout
+                            android:id="@+id/btnAddFood4"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_add_button">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_add" />
+                        </FrameLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_macro_strip"
+                        android:orientation="horizontal"
+                        android:paddingVertical="10dp">
+
+                        <LinearLayout style="@style/MacroCell">
+                            <TextView style="@style/MacroValue" android:text="23" />
+                            <TextView style="@style/MacroLabel" android:text="kkal" />
+                        </LinearLayout>
+
+                        <LinearLayout style="@style/MacroCell">
+                            <TextView style="@style/MacroValue" android:text="3g" />
+                            <TextView style="@style/MacroLabel" android:text="Protein" />
+                        </LinearLayout>
+
+                        <LinearLayout style="@style/MacroCell">
+                            <TextView style="@style/MacroValue" android:text="4g" />
+                            <TextView style="@style/MacroLabel" android:text="Karbo" />
+                        </LinearLayout>
+
+                        <LinearLayout style="@style/MacroCell">
+                            <TextView style="@style/MacroValue" android:text="0.3g" />
+                            <TextView style="@style/MacroLabel" android:text="Lemak" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Tempe Goreng -->
+                <LinearLayout style="@style/FoodLogCard">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView style="@style/FoodDbName" android:text="Tempe Goreng" />
+
+                            <TextView style="@style/FoodDbServing" android:text="2 potong" />
+                        </LinearLayout>
+
+                        <FrameLayout
+                            android:id="@+id/btnAddFood5"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_add_button">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_add" />
+                        </FrameLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_macro_strip"
+                        android:orientation="horizontal"
+                        android:paddingVertical="10dp">
+
+                        <LinearLayout style="@style/MacroCell">
+                            <TextView style="@style/MacroValue" android:text="150" />
+                            <TextView style="@style/MacroLabel" android:text="kkal" />
+                        </LinearLayout>
+
+                        <LinearLayout style="@style/MacroCell">
+                            <TextView style="@style/MacroValue" android:text="14g" />
+                            <TextView style="@style/MacroLabel" android:text="Protein" />
+                        </LinearLayout>
+
+                        <LinearLayout style="@style/MacroCell">
+                            <TextView style="@style/MacroValue" android:text="9g" />
+                            <TextView style="@style/MacroLabel" android:text="Karbo" />
+                        </LinearLayout>
+
+                        <LinearLayout style="@style/MacroCell">
+                            <TextView style="@style/MacroValue" android:text="8g" />
+                            <TextView style="@style/MacroLabel" android:text="Lemak" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Pisang -->
+                <LinearLayout style="@style/FoodLogCard">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView style="@style/FoodDbName" android:text="Pisang" />
+
+                            <TextView style="@style/FoodDbServing" android:text="1 buah" />
+                        </LinearLayout>
+
+                        <FrameLayout
+                            android:id="@+id/btnAddFood6"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_add_button">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_add" />
+                        </FrameLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_macro_strip"
+                        android:orientation="horizontal"
+                        android:paddingVertical="10dp">
+
+                        <LinearLayout style="@style/MacroCell">
+                            <TextView style="@style/MacroValue" android:text="105" />
+                            <TextView style="@style/MacroLabel" android:text="kkal" />
+                        </LinearLayout>
+
+                        <LinearLayout style="@style/MacroCell">
+                            <TextView style="@style/MacroValue" android:text="1.3g" />
+                            <TextView style="@style/MacroLabel" android:text="Protein" />
+                        </LinearLayout>
+
+                        <LinearLayout style="@style/MacroCell">
+                            <TextView style="@style/MacroValue" android:text="27g" />
+                            <TextView style="@style/MacroLabel" android:text="Karbo" />
+                        </LinearLayout>
+
+                        <LinearLayout style="@style/MacroCell">
+                            <TextView style="@style/MacroValue" android:text="0.4g" />
+                            <TextView style="@style/MacroLabel" android:text="Lemak" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom navigation bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/surface"
+        android:elevation="12dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="8dp">
+
+        <!-- Home -->
+        <LinearLayout
+            android:id="@+id/navHome"
+            style="@style/NavItem">
+
+            <LinearLayout style="@style/NavIconWrap">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/nav_home"
+                    android:src="@drawable/ic_home"
+                    app:tint="@color/nav_inactive" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/nav_home"
+                android:textColor="@color/nav_inactive" />
+        </LinearLayout>
+
+        <!-- Log (active) -->
+        <LinearLayout
+            android:id="@+id/navLog"
+            style="@style/NavItem">
+
+            <LinearLayout
+                style="@style/NavIconWrap"
+                android:background="@drawable/bg_nav_active">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/nav_log"
+                    android:src="@drawable/ic_apple_filled"
+                    app:tint="@color/nav_active" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/nav_log"
+                android:textColor="@color/nav_active"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Menu -->
+        <LinearLayout
+            android:id="@+id/navMenu"
+            style="@style/NavItem">
+
+            <LinearLayout style="@style/NavIconWrap">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/nav_menu"
+                    android:src="@drawable/ic_restaurant"
+                    app:tint="@color/nav_inactive" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/nav_menu"
+                android:textColor="@color/nav_inactive" />
+        </LinearLayout>
+
+        <!-- Grafik -->
+        <LinearLayout
+            android:id="@+id/navChart"
+            style="@style/NavItem">
+
+            <LinearLayout style="@style/NavIconWrap">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/nav_chart"
+                    android:src="@drawable/ic_chart"
+                    app:tint="@color/nav_inactive" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/nav_chart"
+                android:textColor="@color/nav_inactive" />
+        </LinearLayout>
+
+        <!-- Profil -->
+        <LinearLayout
+            android:id="@+id/navProfile"
+            style="@style/NavItem">
+
+            <LinearLayout style="@style/NavIconWrap">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/nav_profile"
+                    android:src="@drawable/ic_person"
+                    app:tint="@color/nav_inactive" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/nav_profile"
+                android:textColor="@color/nav_inactive" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

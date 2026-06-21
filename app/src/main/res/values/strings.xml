@@ -1,0 +1,236 @@
+<resources>
+    <string name="app_name">NutriGuide</string>
+
+    <!-- Welcome screen -->
+    <string name="welcome_title">NutriGuide</string>
+    <string name="welcome_subtitle">Pemantau Gizi Harian</string>
+    <string name="welcome_tagline">Cegah Stunting, Wujudkan Generasi Sehat</string>
+    <string name="welcome_start">Mulai Sekarang</string>
+    <string name="welcome_sdg">Supporting SDG 2: Zero Hunger</string>
+
+    <!-- Content descriptions -->
+    <string name="cd_logo">Logo NutriGuide</string>
+    <string name="cd_heart">Ikon hati</string>
+    <string name="cd_apple">Ikon apel</string>
+
+    <!-- Auth screen -->
+    <string name="auth_welcome_back">Selamat datang kembali</string>
+    <string name="auth_tab_login">Masuk</string>
+    <string name="auth_tab_register">Daftar</string>
+    <string name="auth_label_name">Nama Lengkap</string>
+    <string name="auth_label_email">Email</string>
+    <string name="auth_label_password">Password</string>
+    <string name="auth_hint_name">John Doe</string>
+    <string name="auth_hint_email">nama@email.com</string>
+    <string name="auth_hint_password">••••••••</string>
+    <string name="auth_login_user">Masuk sebagai User</string>
+    <string name="auth_login_admin">Masuk sebagai Admin</string>
+    <string name="auth_register">Daftar Sekarang</string>
+
+    <!-- Dashboard -->
+    <string name="dash_greeting">Selamat datang,</string>
+    <string name="dash_user_name">Sarah Wijaya 👋</string>
+    <string name="dash_calorie_title">Target Kalori Harian</string>
+    <string name="dash_calorie_badge">Cukup</string>
+    <string name="dash_calorie_value">1,450</string>
+    <string name="dash_calorie_total">/ 2,000 kkal</string>
+    <string name="dash_calorie_percent">72.5%</string>
+    <string name="dash_calorie_remaining">550 kkal lagi</string>
+
+    <string name="dash_quick_action">Aksi Cepat</string>
+    <string name="dash_log_food">Log Makanan Harian</string>
+    <string name="dash_log_food_sub">Catat asupan makanan Anda</string>
+
+    <string name="dash_nutrition_summary">Ringkasan Gizi Hari Ini</string>
+    <string name="dash_protein">Protein</string>
+    <string name="dash_carbs">Karbohidrat</string>
+    <string name="dash_fat">Lemak</string>
+
+    <string name="dash_food_log_today">Log Makanan Hari Ini</string>
+    <string name="dash_see_all">Lihat Semua →</string>
+
+    <string name="dash_article_section">Artikel Edukasi</string>
+    <string name="dash_article_tag">Nutrisi</string>
+    <string name="dash_article_read">5 min read</string>
+    <string name="dash_article_title">Pentingnya Protein untuk Mencegah Stunting</string>
+    <string name="dash_article_desc">Pelajari bagaimana asupan protein yang cukup dapat membantu tumbuh kembang anak…</string>
+    <string name="dash_article_more">Baca Selengkapnya →</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_log">Log</string>
+    <string name="nav_menu">Menu</string>
+    <string name="nav_chart">Grafik</string>
+    <string name="nav_profile">Profil</string>
+
+    <!-- Log Makanan -->
+    <string name="log_title">Log Makanan</string>
+    <string name="log_subtitle">Catat makanan yang Anda konsumsi</string>
+    <string name="log_choose_meal">Pilih Waktu Makan</string>
+    <string name="log_meal_breakfast">Sarapan</string>
+    <string name="log_meal_lunch">Siang</string>
+    <string name="log_meal_dinner">Malam</string>
+    <string name="log_meal_snack">Snack</string>
+    <string name="log_manual_input">Input Manual Makanan</string>
+    <string name="log_food_name">Nama Makanan</string>
+    <string name="log_food_name_hint">Contoh: Nasi Goreng</string>
+    <string name="log_calorie">Kalori (kkal)</string>
+    <string name="log_portion">Porsi</string>
+    <string name="log_portion_hint">1 porsi</string>
+    <string name="log_protein">Protein (g)</string>
+    <string name="log_carbs">Karbo (g)</string>
+    <string name="log_fat">Lemak (g)</string>
+    <string name="log_zero">0</string>
+    <string name="log_add_to">Tambah ke Log %1$s</string>
+    <string name="log_search_hint">Cari dari database makanan…</string>
+    <string name="log_db_title">Database Makanan Populer</string>
+    <string name="log_db_subtitle">Klik untuk menambahkan ke log Anda</string>
+    <string name="log_added">%1$s ditambahkan ke Log %2$s</string>
+
+    <!-- Rekomendasi Menu -->
+    <string name="menu_title">Rekomendasi Menu</string>
+    <string name="menu_subtitle">Pilihan menu sehat berdasarkan kebutuhan Anda</string>
+    <string name="menu_personal_data">Data Pribadi</string>
+    <string name="menu_age">Umur (tahun)</string>
+    <string name="menu_weight">Berat Badan (kg)</string>
+    <string name="menu_height">Tinggi Badan (cm)</string>
+    <string name="menu_activity">Tingkat Aktivitas</string>
+    <string name="menu_goal">Tujuan</string>
+    <string name="menu_activity_hint">Pilih tingkat aktivitas</string>
+    <string name="menu_goal_hint">Pilih tujuan Anda</string>
+    <string name="menu_see_reco">Lihat Rekomendasi</string>
+    <string name="menu_age_default">25</string>
+    <string name="menu_weight_default">65</string>
+    <string name="menu_height_default">165</string>
+    <string name="menu_reco_ready">Menyusun rekomendasi menu untuk Anda…</string>
+    <string-array name="menu_activity_options">
+        <item>Ringan (jarang olahraga)</item>
+        <item>Sedang (1-3x/minggu)</item>
+        <item>Aktif (3-5x/minggu)</item>
+        <item>Sangat Aktif (setiap hari)</item>
+    </string-array>
+
+    <string-array name="menu_goal_options">
+        <item>Menurunkan Berat Badan</item>
+        <item>Menjaga Berat Badan</item>
+        <item>Menaikkan Berat Badan</item>
+        <item>Cegah Stunting</item>
+    </string-array>
+
+    <!-- Artikel Edukasi -->
+    <string name="article_toolbar_title">Artikel Edukasi</string>
+    <string name="article_tag">Nutrisi</string>
+    <string name="article_read_time">5 min read</string>
+    <string name="article_author">Dr. Nutrisi Sehat</string>
+    <string name="article_title">Pentingnya Protein untuk Mencegah Stunting pada Anak</string>
+
+    <string name="article_sec1_title">Apa itu Stunting?</string>
+    <string name="article_sec1_body">Stunting adalah kondisi gagal tumbuh pada anak akibat kekurangan gizi kronis, terutama pada 1.000 hari pertama kehidupan. Anak yang mengalami stunting memiliki tinggi badan lebih pendek dari standar usianya dan berisiko mengalami gangguan perkembangan.</string>
+    <string name="article_fact">Fakta: 1 dari 5 anak di Indonesia mengalami stunting.</string>
+
+    <string name="article_sec2_title">Mengapa Protein Sangat Penting?</string>
+    <string name="article_point1_title">Membangun Jaringan Tubuh</string>
+    <string name="article_point1_desc">Protein adalah bahan utama pembentuk otot, organ, dan jaringan tubuh anak.</string>
+    <string name="article_point2_title">Mendukung Pertumbuhan</string>
+    <string name="article_point2_desc">Asupan protein yang cukup mendukung pertumbuhan tinggi dan berat badan optimal.</string>
+    <string name="article_point3_title">Menguatkan Imunitas</string>
+    <string name="article_point3_desc">Protein membantu membentuk antibodi yang melindungi anak dari penyakit.</string>
+    <string name="article_point4_title">Perkembangan Otak</string>
+    <string name="article_point4_desc">Protein berperan penting dalam perkembangan sel otak dan fungsi kognitif.</string>
+
+    <string name="article_sec3_title">Sumber Protein Terbaik</string>
+    <string name="article_sec4_title">Rekomendasi Asupan Protein</string>
+    <string name="article_reco1_title">Anak 1-3 tahun</string>
+    <string name="article_reco1_value">13 gram protein per hari</string>
+    <string name="article_reco2_title">Anak 4-8 tahun</string>
+    <string name="article_reco2_value">19 gram protein per hari</string>
+    <string name="article_reco3_title">Dewasa</string>
+    <string name="article_reco3_value">56 gram protein per hari</string>
+
+    <string name="article_sec5_title">Tips Protein</string>
+    <string name="article_sec5_body">Bagi asupan protein ke dalam beberapa waktu makan agar penyerapan lebih optimal. Kombinasikan protein hewani dan nabati untuk memenuhi kebutuhan asam amino yang lengkap.</string>
+
+    <string name="article_conclusion_title">Kesimpulan</string>
+    <string name="article_conclusion_body">Protein adalah kunci penting dalam mencegah stunting. Pastikan anak mendapatkan asupan protein yang cukup dan beragam setiap hari untuk mendukung tumbuh kembang yang optimal.</string>
+
+    <string name="article_save">Simpan Artikel</string>
+    <string name="article_share">Bagikan</string>
+    <string name="article_related">Artikel Terkait</string>
+    <string name="article_related1_title">Sayuran Hijau Kaya Zat Besi untuk Anak</string>
+    <string name="article_related1_read">4 min read</string>
+    <string name="article_related2_title">Pentingnya Sarapan Bergizi bagi Anak</string>
+    <string name="article_related2_read">3 min read</string>
+    <string name="article_saved">Artikel disimpan</string>
+
+    <!-- Rekomendasi Menu (hasil) -->
+    <string name="reco_target_title">Target Kalori Harian Anda</string>
+    <string name="reco_target_value">2,000 kkal</string>
+    <string name="reco_target_sub">Berdasarkan BMR &amp; tingkat aktivitas</string>
+    <string name="reco_breakfast">Sarapan</string>
+    <string name="reco_lunch">Makan Siang</string>
+    <string name="reco_dinner">Makan Malam</string>
+    <string name="reco_time_breakfast">07:00 - 09:00</string>
+    <string name="reco_time_lunch">12:00 - 14:00</string>
+    <string name="reco_time_dinner">18:00 - 20:00</string>
+    <string name="reco_edit_data">Ubah Data Pribadi</string>
+
+    <!-- Profil -->
+    <string name="profile_initials">SW</string>
+    <string name="profile_name">Sarah Wijaya</string>
+    <string name="profile_email">sarah.wijaya@email.com</string>
+    <string name="profile_member">Member sejak Jan 2026</string>
+    <string name="profile_stat_active">28</string>
+    <string name="profile_stat_active_label">Hari Aktif</string>
+    <string name="profile_stat_compliance">95%</string>
+    <string name="profile_stat_compliance_label">Compliance</string>
+    <string name="profile_stat_progress">2.5kg</string>
+    <string name="profile_stat_progress_label">Progress</string>
+
+    <string name="profile_personal">Informasi Pribadi</string>
+    <string name="profile_label_name">Nama Lengkap</string>
+    <string name="profile_label_email">Email</string>
+    <string name="profile_label_phone">No. Telepon</string>
+    <string name="profile_value_phone">+62 812-3456-7890</string>
+    <string name="profile_label_birth">Tanggal Lahir</string>
+    <string name="profile_value_birth">15 Maret 1998 (28 tahun)</string>
+
+    <string name="profile_health">Data Kesehatan</string>
+    <string name="profile_label_weight">Berat Badan</string>
+    <string name="profile_value_weight">62.5 kg</string>
+    <string name="profile_label_height">Tinggi Badan</string>
+    <string name="profile_value_height">165 cm</string>
+    <string name="profile_label_nutrition">Target Gizi</string>
+    <string name="profile_value_nutrition">2,000 kkal/hari</string>
+    <string name="profile_label_activity">Tingkat Aktivitas</string>
+    <string name="profile_value_activity">Sedang</string>
+
+    <string name="profile_settings">Pengaturan</string>
+    <string name="profile_notif">Notifikasi</string>
+    <string name="profile_notif_sub">Atur pengingat makan</string>
+    <string name="profile_security">Keamanan</string>
+    <string name="profile_security_sub">Ubah password</string>
+    <string name="profile_logout">Keluar</string>
+    <string name="profile_logout_sub">Logout dari akun</string>
+
+    <!-- Grafik Gizi -->
+    <string name="chart_title">Grafik Gizi</string>
+    <string name="chart_subtitle">Pantau perkembangan asupan gizi Anda</string>
+    <string name="chart_tab_daily">Harian</string>
+    <string name="chart_tab_weekly">Mingguan</string>
+    <string name="chart_tab_status">Status</string>
+
+    <string name="chart_calorie_title">Asupan Kalori (7 Hari Terakhir)</string>
+    <string name="chart_macro_dist">Distribusi Makronutrien Hari Ini</string>
+    <string name="chart_macro_trend">Tren Makronutrien</string>
+    <string name="chart_legend_protein">Protein (g)</string>
+    <string name="chart_legend_carbs">Karbo (g)</string>
+    <string name="chart_legend_fat">Lemak (g)</string>
+
+    <string name="chart_weekly_calorie">Rata-rata Kalori per Minggu</string>
+    <string name="chart_weekly_compliance">Kepatuhan Mingguan</string>
+    <string name="chart_weekly_summary">Ringkasan Minggu Ini</string>
+
+    <string name="chart_status_title">Status Gizi</string>
+    <string name="chart_status_bmi">Indeks Massa Tubuh (BMI)</string>
+    <string name="chart_status_weight">Tren Berat Badan</string>
+</resources>

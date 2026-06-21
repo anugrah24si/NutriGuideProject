@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/menuRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen_bg"
+    android:orientation="vertical"
+    tools:context=".ui.menu.MenuActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_dashboard_header"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="24dp"
+                android:paddingBottom="28dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🍱"
+                    android:textSize="40sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/menu_title"
+                    android:textColor="@color/text_on_dark"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/menu_subtitle"
+                    android:textColor="@color/text_on_dark_muted"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Body -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Data Pribadi card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/menu_personal_data"
+                        android:textColor="@color/text_dark"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <!-- Umur -->
+                    <TextView
+                        style="@style/MenuLabel"
+                        android:layout_marginTop="14dp"
+                        android:text="@string/menu_age" />
+
+                    <EditText
+                        android:id="@+id/inputAge"
+                        style="@style/MenuFieldGray"
+                        android:inputType="number"
+                        android:text="@string/menu_age_default"
+                        android:autofillHints="" />
+
+                    <!-- Berat Badan -->
+                    <TextView
+                        style="@style/MenuLabel"
+                        android:text="@string/menu_weight" />
+
+                    <EditText
+                        android:id="@+id/inputWeight"
+                        style="@style/MenuFieldGray"
+                        android:inputType="numberDecimal"
+                        android:text="@string/menu_weight_default"
+                        android:autofillHints="" />
+
+                    <!-- Tinggi Badan -->
+                    <TextView
+                        style="@style/MenuLabel"
+                        android:text="@string/menu_height" />
+
+                    <EditText
+                        android:id="@+id/inputHeight"
+                        style="@style/MenuFieldGray"
+                        android:inputType="numberDecimal"
+                        android:text="@string/menu_height_default"
+                        android:autofillHints="" />
+
+                    <!-- Tingkat Aktivitas -->
+                    <TextView
+                        style="@style/MenuLabel"
+                        android:text="@string/menu_activity" />
+
+                    <TextView
+                        android:id="@+id/selectActivity"
+                        style="@style/MenuFieldSelect"
+                        android:hint="@string/menu_activity_hint"
+                        android:textColorHint="@color/field_hint" />
+
+                    <!-- Tujuan -->
+                    <TextView
+                        style="@style/MenuLabel"
+                        android:text="@string/menu_goal" />
+
+                    <TextView
+                        android:id="@+id/selectGoal"
+                        style="@style/MenuFieldSelect"
+                        android:hint="@string/menu_goal_hint"
+                        android:textColorHint="@color/field_hint" />
+
+                    <Button
+                        android:id="@+id/btnSeeReco"
+                        style="@style/PrimaryGreenButton"
+                        android:layout_height="52dp"
+                        android:layout_marginTop="24dp"
+                        android:text="@string/menu_see_reco" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom navigation bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/surface"
+        android:elevation="12dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="8dp">
+
+        <!-- Home -->
+        <LinearLayout
+            android:id="@+id/navHome"
+            style="@style/NavItem">
+
+            <LinearLayout style="@style/NavIconWrap">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/nav_home"
+                    android:src="@drawable/ic_home"
+                    app:tint="@color/nav_inactive" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/nav_home"
+                android:textColor="@color/nav_inactive" />
+        </LinearLayout>
+
+        <!-- Log -->
+        <LinearLayout
+            android:id="@+id/navLog"
+            style="@style/NavItem">
+
+            <LinearLayout style="@style/NavIconWrap">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/nav_log"
+                    android:src="@drawable/ic_apple_filled"
+                    app:tint="@color/nav_inactive" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/nav_log"
+                android:textColor="@color/nav_inactive" />
+        </LinearLayout>
+
+        <!-- Menu (active) -->
+        <LinearLayout
+            android:id="@+id/navMenu"
+            style="@style/NavItem">
+
+            <LinearLayout
+                style="@style/NavIconWrap"
+                android:background="@drawable/bg_nav_active">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/nav_menu"
+                    android:src="@drawable/ic_restaurant"
+                    app:tint="@color/nav_active" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/nav_menu"
+                android:textColor="@color/nav_active"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Grafik -->
+        <LinearLayout
+            android:id="@+id/navChart"
+            style="@style/NavItem">
+
+            <LinearLayout style="@style/NavIconWrap">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/nav_chart"
+                    android:src="@drawable/ic_chart"
+                    app:tint="@color/nav_inactive" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/nav_chart"
+                android:textColor="@color/nav_inactive" />
+        </LinearLayout>
+
+        <!-- Profil -->
+        <LinearLayout
+            android:id="@+id/navProfile"
+            style="@style/NavItem">
+
+            <LinearLayout style="@style/NavIconWrap">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/nav_profile"
+                    android:src="@drawable/ic_person"
+                    app:tint="@color/nav_inactive" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/nav_profile"
+                android:textColor="@color/nav_inactive" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
