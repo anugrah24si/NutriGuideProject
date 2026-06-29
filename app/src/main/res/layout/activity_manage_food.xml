@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/manageFoodRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen_bg"
+    android:orientation="vertical"
+    tools:context=".ui.admin.ManageFoodActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_dashboard_header"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="24dp"
+                android:paddingBottom="24dp">
+
+                <FrameLayout
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:background="@drawable/bg_circle_icon_dark">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_restaurant" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/manage_title"
+                    android:textColor="@color/text_on_dark"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/manage_subtitle"
+                    android:textColor="@color/text_on_dark_muted"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Body -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Search -->
+                <LinearLayout
+                    style="@style/FieldBox"
+                    android:background="@drawable/bg_field">
+
+                    <ImageView
+                        style="@style/FieldIcon"
+                        android:src="@drawable/ic_search" />
+
+                    <EditText
+                        android:id="@+id/inputSearch"
+                        style="@style/FieldInput"
+                        android:hint="@string/manage_search_hint"
+                        android:inputType="text" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnAddNewFood"
+                    style="@style/PrimaryGreenButton"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/manage_add_new" />
+
+                <!-- Form Input Data Makanan (muncul saat tombol di atas ditekan) -->
+                <LinearLayout
+                    android:id="@+id/formCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/formTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/form_title"
+                        android:textColor="@color/text_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView style="@style/MenuLabel" android:layout_marginTop="14dp" android:text="@string/form_name" />
+
+                    <EditText
+                        android:id="@+id/formName"
+                        style="@style/MenuFieldGray"
+                        android:hint="@string/form_name_hint"
+                        android:inputType="text"
+                        android:autofillHints="" />
+
+                    <TextView style="@style/MenuLabel" android:text="@string/form_category" />
+
+                    <TextView
+                        android:id="@+id/formCategory"
+                        style="@style/MenuFieldSelect"
+                        android:hint="@string/form_category_hint"
+                        android:textColorHint="@color/field_hint" />
+
+                    <TextView style="@style/MenuLabel" android:text="@string/form_portion" />
+
+                    <EditText
+                        android:id="@+id/formPortion"
+                        style="@style/MenuFieldGray"
+                        android:hint="@string/form_portion_hint"
+                        android:inputType="text"
+                        android:autofillHints="" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                            <TextView style="@style/MenuLabel" android:text="@string/form_calorie" />
+                            <EditText android:id="@+id/formCalorie" style="@style/MenuFieldGray" android:hint="@string/form_zero" android:inputType="number" />
+                        </LinearLayout>
+
+                        <Space android:layout_width="12dp" android:layout_height="1dp" />
+
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                            <TextView style="@style/MenuLabel" android:text="@string/form_protein" />
+                            <EditText android:id="@+id/formProtein" style="@style/MenuFieldGray" android:hint="@string/form_zero" android:inputType="numberDecimal" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                            <TextView style="@style/MenuLabel" android:text="@string/form_carbs" />
+                            <EditText android:id="@+id/formCarbs" style="@style/MenuFieldGray" android:hint="@string/form_zero" android:inputType="numberDecimal" />
+                        </LinearLayout>
+
+                        <Space android:layout_width="12dp" android:layout_height="1dp" />
+
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                            <TextView style="@style/MenuLabel" android:text="@string/form_fat" />
+                            <EditText android:id="@+id/formFat" style="@style/MenuFieldGray" android:hint="@string/form_zero" android:inputType="numberDecimal" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView style="@style/MenuLabel" android:text="@string/form_fiber" />
+
+                    <EditText
+                        android:id="@+id/formFiber"
+                        style="@style/MenuFieldGray"
+                        android:hint="@string/form_zero"
+                        android:inputType="numberDecimal" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btnSaveFood"
+                            style="@style/PrimaryGreenButton"
+                            android:layout_width="0dp"
+                            android:layout_height="50dp"
+                            android:layout_weight="1"
+                            android:drawableStart="@drawable/ic_save"
+                            android:drawablePadding="6dp"
+                            android:paddingStart="20dp"
+                            android:paddingEnd="20dp"
+                            android:text="@string/form_save" />
+
+                        <Space android:layout_width="12dp" android:layout_height="1dp" />
+
+                        <Button
+                            android:id="@+id/btnCancelFood"
+                            android:layout_width="0dp"
+                            android:layout_height="50dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_button_outline"
+                            android:stateListAnimator="@null"
+                            android:text="@string/form_cancel"
+                            android:textAllCaps="false"
+                            android:textColor="@color/text_dark"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvDbCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/manage_db_count"
+                    android:textColor="@color/text_muted"
+                    android:textSize="13sp" />
+
+                <!-- Daftar makanan (dinamis dari Supabase) -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/foodRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:nestedScrollingEnabled="false"
+                    tools:listitem="@layout/item_food_db" />
+
+                <TextView
+                    android:id="@+id/tvEmpty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center"
+                    android:text="@string/manage_empty"
+                    android:textColor="@color/text_muted"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Admin bottom nav -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/surface"
+        android:elevation="12dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="8dp">
+
+        <LinearLayout
+            android:id="@+id/adminNavDashboard"
+            style="@style/NavItem">
+
+            <LinearLayout style="@style/NavIconWrap">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/admin_nav_dashboard"
+                    android:src="@drawable/ic_home"
+                    app:tint="@color/nav_inactive" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/admin_nav_dashboard"
+                android:textColor="@color/nav_inactive" />
+        </LinearLayout>
+
+        <!-- Data Makanan (active) -->
+        <LinearLayout
+            android:id="@+id/adminNavFood"
+            style="@style/NavItem">
+
+            <LinearLayout
+                style="@style/NavIconWrap"
+                android:background="@drawable/bg_nav_active">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/admin_nav_food"
+                    android:src="@drawable/ic_database"
+                    app:tint="@color/nav_active" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/admin_nav_food"
+                android:textColor="@color/nav_active"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/adminNavSettings"
+            style="@style/NavItem">
+
+            <LinearLayout style="@style/NavIconWrap">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/admin_nav_settings"
+                    android:src="@drawable/ic_settings"
+                    app:tint="@color/nav_inactive" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/admin_nav_settings"
+                android:textColor="@color/nav_inactive" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

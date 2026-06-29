@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/manageArticleRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen_bg"
+    android:orientation="vertical"
+    tools:context=".ui.admin.ManageArticleActivity">
+
+    <!-- Toolbar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_auth_header"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="14dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/ma_title"
+            android:padding="8dp"
+            android:src="@drawable/ic_arrow_back" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp"
+            android:text="@string/ma_title"
+            android:textColor="@color/text_on_dark"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/btnAddNewArticle"
+                style="@style/PrimaryGreenButton"
+                android:layout_height="50dp"
+                android:text="@string/ma_add_new" />
+
+            <!-- Form Artikel (toggle) -->
+            <LinearLayout
+                android:id="@+id/maFormCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/maFormTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ma_form_title"
+                    android:textColor="@color/text_dark"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView style="@style/MenuLabel" android:layout_marginTop="14dp" android:text="@string/ma_field_title" />
+
+                <EditText
+                    android:id="@+id/formMaTitle"
+                    style="@style/MenuFieldGray"
+                    android:hint="@string/ma_field_title_hint"
+                    android:inputType="text"
+                    android:autofillHints="" />
+
+                <TextView style="@style/MenuLabel" android:text="@string/ma_field_category" />
+
+                <EditText
+                    android:id="@+id/formMaCategory"
+                    style="@style/MenuFieldGray"
+                    android:hint="@string/ma_field_category_hint"
+                    android:inputType="text"
+                    android:autofillHints="" />
+
+                <TextView style="@style/MenuLabel" android:text="@string/ma_field_content" />
+
+                <EditText
+                    android:id="@+id/formMaContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:background="@drawable/bg_field"
+                    android:gravity="top|start"
+                    android:hint="@string/ma_field_content_hint"
+                    android:inputType="textMultiLine"
+                    android:padding="12dp"
+                    android:textColor="@color/text_dark"
+                    android:textColorHint="@color/field_hint"
+                    android:textSize="14sp"
+                    android:autofillHints="" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView style="@style/MenuLabel" android:text="@string/ma_field_readtime" />
+                        <EditText android:id="@+id/formMaReadtime" style="@style/MenuFieldGray" android:hint="@string/ma_field_readtime_hint" android:inputType="text" android:autofillHints="" />
+                    </LinearLayout>
+
+                    <Space android:layout_width="12dp" android:layout_height="1dp" />
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView style="@style/MenuLabel" android:text="@string/ma_field_status" />
+                        <TextView android:id="@+id/formMaStatus" style="@style/MenuFieldSelect" android:text="Draft" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView style="@style/MenuLabel" android:text="@string/ma_field_author" />
+
+                <EditText
+                    android:id="@+id/formMaAuthor"
+                    style="@style/MenuFieldGray"
+                    android:hint="@string/ma_field_author_hint"
+                    android:inputType="text"
+                    android:autofillHints="" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnMaSave"
+                        style="@style/PrimaryGreenButton"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:drawableStart="@drawable/ic_save"
+                        android:drawablePadding="6dp"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:text="@string/form_save" />
+
+                    <Space android:layout_width="12dp" android:layout_height="1dp" />
+
+                    <Button
+                        android:id="@+id/btnMaCancel"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_outline"
+                        android:stateListAnimator="@null"
+                        android:text="@string/form_cancel"
+                        android:textAllCaps="false"
+                        android:textColor="@color/text_dark"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvMaCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/ma_count_fmt"
+                android:textColor="@color/text_muted"
+                android:textSize="13sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/articleRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:nestedScrollingEnabled="false"
+                tools:listitem="@layout/item_article_admin" />
+
+            <TextView
+                android:id="@+id/tvMaEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:text="@string/ma_empty"
+                android:textColor="@color/text_muted"
+                android:textSize="14sp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

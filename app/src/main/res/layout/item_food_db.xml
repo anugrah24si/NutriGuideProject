@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/FoodDbCard"
+    android:layout_width="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/FoodDbName"
+                android:text="Nama Makanan" />
+
+            <TextView
+                android:id="@+id/tvCategory"
+                style="@style/RecoTag"
+                android:layout_marginStart="8dp"
+                android:text="Kategori" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/btnEdit"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:background="@drawable/bg_action_blue">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/manage_cd_edit"
+                android:src="@drawable/ic_edit" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btnDelete"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_action_red">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/manage_cd_delete"
+                android:src="@drawable/ic_delete" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvServing"
+        style="@style/FoodDbServing"
+        android:text="porsi" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_macro_strip"
+        android:orientation="horizontal"
+        android:paddingVertical="10dp">
+
+        <LinearLayout style="@style/MacroCell">
+            <TextView android:id="@+id/tvKkal" style="@style/MacroKkal" android:text="0" />
+            <TextView style="@style/MacroLabel" android:text="kkal" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/MacroCell">
+            <TextView android:id="@+id/tvProtein" style="@style/MacroProtein" android:text="0g" />
+            <TextView style="@style/MacroLabel" android:text="Protein" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/MacroCell">
+            <TextView android:id="@+id/tvCarbs" style="@style/MacroCarbs" android:text="0g" />
+            <TextView style="@style/MacroLabel" android:text="Karbo" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/MacroCell">
+            <TextView android:id="@+id/tvFat" style="@style/MacroFat" android:text="0g" />
+            <TextView style="@style/MacroLabel" android:text="Lemak" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/MacroCell">
+            <TextView android:id="@+id/tvFiber" style="@style/MacroFiber" android:text="0g" />
+            <TextView style="@style/MacroLabel" android:text="Serat" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

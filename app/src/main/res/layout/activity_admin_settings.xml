@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/adminSettingsRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen_bg"
+    android:orientation="vertical"
+    tools:context=".ui.admin.AdminSettingsActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_dashboard_header"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingTop="28dp"
+                android:paddingBottom="32dp">
+
+                <FrameLayout
+                    android:layout_width="96dp"
+                    android:layout_height="96dp">
+
+                    <FrameLayout
+                        android:layout_width="96dp"
+                        android:layout_height="96dp"
+                        android:background="@drawable/bg_avatar_circle">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="A"
+                            android:textColor="@color/text_on_dark"
+                            android:textSize="34sp"
+                            android:textStyle="bold" />
+                    </FrameLayout>
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="bottom|end"
+                        android:background="@drawable/bg_status_dot" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/admin_account_name"
+                    android:textColor="@color/text_on_dark"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/admin_account_email"
+                    android:textColor="@color/text_on_dark_muted"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Body -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    style="@style/ProfileSectionLabel"
+                    android:text="@string/profile_settings" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical"
+                    android:paddingVertical="4dp">
+
+                    <LinearLayout android:id="@+id/rowNotif" style="@style/InfoRow">
+                        <FrameLayout style="@style/InfoIconTile" android:background="@drawable/bg_circle_lt_blue">
+                            <ImageView style="@style/InfoIcon" android:src="@drawable/ic_bell" app:tint="@color/pastel_blue" />
+                        </FrameLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
+                            <TextView style="@style/InfoRowValue" android:text="@string/profile_notif" />
+                            <TextView style="@style/InfoRowLabel" android:text="@string/profile_notif_sub" />
+                        </LinearLayout>
+                        <ImageView style="@style/InfoChevron" />
+                    </LinearLayout>
+
+                    <View style="@style/InfoDivider" />
+
+                    <LinearLayout android:id="@+id/rowSecurity" style="@style/InfoRow">
+                        <FrameLayout style="@style/InfoIconTile" android:background="@drawable/bg_circle_lt_orange">
+                            <ImageView style="@style/InfoIcon" android:src="@drawable/ic_lock" app:tint="@color/pastel_orange" />
+                        </FrameLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
+                            <TextView style="@style/InfoRowValue" android:text="@string/profile_security" />
+                            <TextView style="@style/InfoRowLabel" android:text="@string/profile_security_sub" />
+                        </LinearLayout>
+                        <ImageView style="@style/InfoChevron" />
+                    </LinearLayout>
+
+                    <View style="@style/InfoDivider" />
+
+                    <LinearLayout android:id="@+id/rowLogout" style="@style/InfoRow">
+                        <FrameLayout style="@style/InfoIconTile" android:background="@drawable/bg_circle_lt_red">
+                            <ImageView style="@style/InfoIcon" android:src="@drawable/ic_logout" app:tint="@color/danger_red" />
+                        </FrameLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/profile_logout" android:textColor="@color/danger_red" android:textSize="15sp" android:textStyle="bold" />
+                            <TextView style="@style/InfoRowLabel" android:text="@string/profile_logout_sub" />
+                        </LinearLayout>
+                        <ImageView style="@style/InfoChevron" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Admin bottom nav -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/surface"
+        android:elevation="12dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="8dp">
+
+        <LinearLayout
+            android:id="@+id/adminNavDashboard"
+            style="@style/NavItem">
+
+            <LinearLayout style="@style/NavIconWrap">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/admin_nav_dashboard"
+                    android:src="@drawable/ic_home"
+                    app:tint="@color/nav_inactive" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/admin_nav_dashboard"
+                android:textColor="@color/nav_inactive" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/adminNavFood"
+            style="@style/NavItem">
+
+            <LinearLayout style="@style/NavIconWrap">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/admin_nav_food"
+                    android:src="@drawable/ic_database"
+                    app:tint="@color/nav_inactive" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/admin_nav_food"
+                android:textColor="@color/nav_inactive" />
+        </LinearLayout>
+
+        <!-- Pengaturan (active) -->
+        <LinearLayout
+            android:id="@+id/adminNavSettings"
+            style="@style/NavItem">
+
+            <LinearLayout
+                style="@style/NavIconWrap"
+                android:background="@drawable/bg_nav_active">
+
+                <ImageView
+                    style="@style/NavIcon"
+                    android:contentDescription="@string/admin_nav_settings"
+                    android:src="@drawable/ic_settings"
+                    app:tint="@color/nav_active" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/NavLabel"
+                android:text="@string/admin_nav_settings"
+                android:textColor="@color/nav_active"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/FoodLogCard"
+    android:layout_width="match_parent">
+
+    <FrameLayout style="@style/FoodLogIconTile">
+
+        <ImageView
+            style="@style/FoodLogIcon"
+            android:src="@drawable/ic_restaurant" />
+    </FrameLayout>
+
+    <LinearLayout style="@style/FoodLogText">
+
+        <TextView
+            android:id="@+id/tvMeal"
+            style="@style/FoodLogName"
+            android:text="Sarapan" />
+
+        <TextView
+            android:id="@+id/tvFood"
+            style="@style/FoodLogDesc"
+            android:text="Makanan" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/FoodLogTrailing">
+
+        <TextView
+            android:id="@+id/tvKcal"
+            style="@style/FoodLogKcal"
+            android:text="0 kkal" />
+
+        <TextView
+            android:id="@+id/tvTime"
+            style="@style/FoodLogTime"
+            android:text="--:--" />
+    </LinearLayout>
+</LinearLayout>
