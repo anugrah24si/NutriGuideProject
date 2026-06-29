@@ -48,6 +48,7 @@
 
     <string name="dash_food_log_today">Log Makanan Hari Ini</string>
     <string name="dash_see_all">Lihat Semua →</string>
+    <string name="dash_log_empty">Belum ada makanan dicatat hari ini.</string>
 
     <string name="dash_article_section">Artikel Edukasi</string>
     <string name="dash_article_tag">Nutrisi</string>
@@ -86,6 +87,8 @@
     <string name="log_db_title">Database Makanan Populer</string>
     <string name="log_db_subtitle">Klik untuk menambahkan ke log Anda</string>
     <string name="log_added">%1$s ditambahkan ke Log %2$s</string>
+    <string name="log_empty">Belum ada data makanan di database.</string>
+    <string name="log_load_error">Gagal memuat makanan: %1$s</string>
 
     <!-- Rekomendasi Menu -->
     <string name="menu_title">Rekomendasi Menu</string>
@@ -161,6 +164,7 @@
     <string name="article_related2_title">Pentingnya Sarapan Bergizi bagi Anak</string>
     <string name="article_related2_read">3 min read</string>
     <string name="article_saved">Artikel disimpan</string>
+    <string name="article_content_heading">Isi Artikel</string>
 
     <!-- Rekomendasi Menu (hasil) -->
     <string name="reco_target_title">Target Kalori Harian Anda</string>
@@ -215,22 +219,122 @@
     <!-- Grafik Gizi -->
     <string name="chart_title">Grafik Gizi</string>
     <string name="chart_subtitle">Pantau perkembangan asupan gizi Anda</string>
-    <string name="chart_tab_daily">Harian</string>
-    <string name="chart_tab_weekly">Mingguan</string>
-    <string name="chart_tab_status">Status</string>
-
-    <string name="chart_calorie_title">Asupan Kalori (7 Hari Terakhir)</string>
-    <string name="chart_macro_dist">Distribusi Makronutrien Hari Ini</string>
-    <string name="chart_macro_trend">Tren Makronutrien</string>
-    <string name="chart_legend_protein">Protein (g)</string>
-    <string name="chart_legend_carbs">Karbo (g)</string>
-    <string name="chart_legend_fat">Lemak (g)</string>
-
-    <string name="chart_weekly_calorie">Rata-rata Kalori per Minggu</string>
-    <string name="chart_weekly_compliance">Kepatuhan Mingguan</string>
-    <string name="chart_weekly_summary">Ringkasan Minggu Ini</string>
 
     <string name="chart_status_title">Status Gizi</string>
-    <string name="chart_status_bmi">Indeks Massa Tubuh (BMI)</string>
     <string name="chart_status_weight">Tren Berat Badan</string>
+
+    <!-- Admin -->
+    <string name="admin_title">Admin Dashboard</string>
+    <string name="admin_subtitle">Kelola data dan pantau aktivitas aplikasi</string>
+    <string name="admin_stat_users">Total User</string>
+    <string name="admin_stat_users_value">410</string>
+    <string name="admin_stat_users_badge">+28% bulan ini</string>
+    <string name="admin_stat_food">Data Makanan</string>
+    <string name="admin_stat_food_value">1,250</string>
+    <string name="admin_stat_food_badge">+15 minggu ini</string>
+    <string name="admin_stat_article">Artikel</string>
+    <string name="admin_stat_article_value">48</string>
+    <string name="admin_stat_article_badge">12 draft</string>
+    <string name="admin_stat_log">Log Hari Ini</string>
+    <string name="admin_stat_log_value">610</string>
+    <string name="admin_stat_log_badge">Aktif</string>
+
+    <string name="admin_chart_growth">Pertumbuhan Pengguna</string>
+    <string name="admin_chart_activity">Aktivitas Log Makanan (7 Hari)</string>
+
+    <string name="admin_quick">Aksi Cepat</string>
+    <string name="admin_add_food">Tambah Data Makanan</string>
+    <string name="admin_add_food_sub">Input data gizi makanan baru</string>
+    <string name="admin_create_article">Buat Artikel Edukasi</string>
+    <string name="admin_create_article_sub">Tulis artikel gizi baru</string>
+    <string name="admin_manage_db">Kelola Database</string>
+    <string name="admin_manage_db_sub">Edit atau hapus data makanan</string>
+    <string name="admin_user_list">Lihat Daftar User</string>
+    <string name="admin_user_list_sub">Pantau aktivitas pengguna</string>
+
+    <string name="admin_nav_dashboard">Dashboard</string>
+    <string name="admin_nav_food">Data Makanan</string>
+    <string name="admin_nav_settings">Pengaturan</string>
+    <string name="admin_account_name">Admin</string>
+    <string name="admin_account_email">Admin@gmail.com</string>
+
+    <!-- Kelola Artikel (admin) -->
+    <string name="ma_title">Kelola Artikel</string>
+    <string name="ma_subtitle">Tambah, edit, atau hapus artikel edukasi</string>
+    <string name="ma_add_new">Buat Artikel Baru</string>
+    <string name="ma_count_fmt">Artikel (%1$d)</string>
+    <string name="ma_form_title">Form Artikel</string>
+    <string name="ma_form_title_edit">Edit Artikel</string>
+    <string name="ma_field_title">Judul</string>
+    <string name="ma_field_title_hint">Judul artikel</string>
+    <string name="ma_field_category">Kategori</string>
+    <string name="ma_field_category_hint">Contoh: Nutrisi</string>
+    <string name="ma_field_content">Isi Artikel</string>
+    <string name="ma_field_content_hint">Tulis isi artikel di sini…</string>
+    <string name="ma_field_readtime">Waktu Baca</string>
+    <string name="ma_field_readtime_hint">Contoh: 5 min read</string>
+    <string name="ma_field_author">Penulis</string>
+    <string name="ma_field_author_hint">Nama penulis</string>
+    <string name="ma_field_status">Status</string>
+    <string name="ma_empty">Belum ada artikel. Tekan \"Buat Artikel Baru\".</string>
+    <string name="ma_saved">Artikel tersimpan</string>
+    <string name="ma_deleted">%1$s dihapus</string>
+    <string name="ma_delete_title">Hapus Artikel</string>
+    <string name="ma_delete_msg">Hapus artikel \"%1$s\"?</string>
+    <string name="ma_load_error">Gagal memuat artikel: %1$s</string>
+
+    <string-array name="ma_status_options">
+        <item>Draft</item>
+        <item>Published</item>
+    </string-array>
+
+    <!-- Daftar User (admin) -->
+    <string name="ul_title">Daftar User</string>
+    <string name="ul_count_fmt">Total %1$d pengguna</string>
+    <string name="ul_empty">Belum ada pengguna.</string>
+    <string name="ul_load_error">Gagal memuat daftar user: %1$s</string>
+
+    <!-- Kelola Data Makanan -->
+    <string name="manage_title">Kelola Data Makanan</string>
+    <string name="manage_subtitle">Tambah, edit, atau hapus data kandungan gizi makanan</string>
+    <string name="manage_search_hint">Cari makanan…</string>
+    <string name="manage_add_new">Tambah Data Makanan Baru</string>
+    <string name="manage_db_count">Database Makanan (6 item)</string>
+    <string name="manage_cd_edit">Edit data makanan</string>
+    <string name="manage_cd_delete">Hapus data makanan</string>
+    <string name="manage_edited">Edit %1$s</string>
+    <string name="manage_delete_title">Hapus Data</string>
+    <string name="manage_delete_message">Hapus %1$s dari database?</string>
+    <string name="manage_deleted">%1$s dihapus</string>
+    <string name="manage_add_toast">Form tambah data makanan segera hadir</string>
+
+    <!-- Form Input Data Makanan -->
+    <string name="form_title">Form Input Data Makanan</string>
+    <string name="form_name">Nama Makanan</string>
+    <string name="form_name_hint">Contoh: Nasi Merah</string>
+    <string name="form_category">Kategori</string>
+    <string name="form_category_hint">Pilih kategori</string>
+    <string name="form_portion">Porsi</string>
+    <string name="form_portion_hint">Contoh: 1 porsi (150g)</string>
+    <string name="form_calorie">Kalori (kkal)</string>
+    <string name="form_protein">Protein (g)</string>
+    <string name="form_carbs">Karbohidrat (g)</string>
+    <string name="form_fat">Lemak (g)</string>
+    <string name="form_fiber">Serat (g)</string>
+    <string name="form_zero">0</string>
+    <string name="form_save">Simpan</string>
+    <string name="form_cancel">Batal</string>
+    <string name="form_saved">Data makanan tersimpan</string>
+    <string name="form_title_edit">Edit Data Makanan</string>
+    <string name="manage_empty">Belum ada data makanan. Tekan \"Tambah Data Makanan Baru\".</string>
+    <string name="manage_load_error">Gagal memuat data: %1$s</string>
+    <string name="manage_count_fmt">Database Makanan (%1$d item)</string>
+
+    <string-array name="form_category_options">
+        <item>Karbohidrat</item>
+        <item>Protein</item>
+        <item>Sayuran</item>
+        <item>Buah</item>
+        <item>Lemak</item>
+    </string-array>
 </resources>

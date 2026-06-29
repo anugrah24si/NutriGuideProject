@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -26,38 +28,61 @@
             android:exported="false" />
 
         <activity
-            android:name=".ui.dashboard.DashboardActivity"
+            android:name=".ui.user.dashboard.DashboardActivity"
             android:exported="false"
             android:launchMode="singleTop" />
 
         <activity
-            android:name=".ui.log.LogActivity"
+            android:name=".ui.user.log.LogActivity"
             android:exported="false"
             android:launchMode="singleTop" />
 
         <activity
-            android:name=".ui.menu.MenuActivity"
+            android:name=".ui.user.menu.MenuActivity"
             android:exported="false"
             android:launchMode="singleTop" />
 
         <activity
-            android:name=".ui.article.ArticleActivity"
+            android:name=".ui.user.article.ArticleActivity"
             android:exported="false" />
 
         <activity
-            android:name=".ui.recommendation.RecommendationActivity"
+            android:name=".ui.user.recommendation.RecommendationActivity"
             android:exported="false"
             android:launchMode="singleTop" />
 
         <activity
-            android:name=".ui.profile.ProfileActivity"
+            android:name=".ui.user.profile.ProfileActivity"
             android:exported="false"
             android:launchMode="singleTop" />
 
         <activity
-            android:name=".ui.chart.ChartActivity"
+            android:name=".ui.user.chart.ChartActivity"
             android:exported="false"
             android:launchMode="singleTop" />
+
+        <activity
+            android:name=".ui.admin.AdminDashboardActivity"
+            android:exported="false"
+            android:launchMode="singleTop" />
+
+        <activity
+            android:name=".ui.admin.ManageFoodActivity"
+            android:exported="false"
+            android:launchMode="singleTop" />
+
+        <activity
+            android:name=".ui.admin.AdminSettingsActivity"
+            android:exported="false"
+            android:launchMode="singleTop" />
+
+        <activity
+            android:name=".ui.admin.ManageArticleActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.admin.UserListActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

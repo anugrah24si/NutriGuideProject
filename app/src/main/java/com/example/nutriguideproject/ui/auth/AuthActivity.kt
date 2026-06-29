@@ -4,18 +4,24 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.LinearLayout
+import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.nutriguideproject.R
-import com.example.nutriguideproject.ui.dashboard.DashboardActivity
+import com.example.nutriguideproject.data.local.SessionManager
+import com.example.nutriguideproject.data.repository.AuthRepository
+import com.example.nutriguideproject.data.repository.AuthUser
+import com.example.nutriguideproject.ui.admin.AdminDashboardActivity
+import com.example.nutriguideproject.ui.user.dashboard.DashboardActivity
 
 /**
- * Layar autentikasi dengan dua tab: Masuk dan Daftar.
- * Tidak ada validasi data — tombol mana pun langsung menuju Dashboard.
+ * Layar autentikasi (Masuk & Daftar) berbasis Supabase Auth.
+ * Setelah login berhasil, app membaca `role` dari tabel profiles lalu
+ * mengarahkan ke halaman Admin atau User secara otomatis.
  */
 class AuthActivity : AppCompatActivity() {
 
@@ -24,6 +30,15 @@ class AuthActivity : AppCompatActivity() {
     private lateinit var nameGroup: View
     private lateinit var loginButtons: View
     private lateinit var btnRegister: Button
+    private lateinit var btnLoginUser: Button
+    private lateinit var btnLoginAdmin: Button
+
+    private lateinit var inputName: EditText
+    private lateinit var inputEmail: EditText
+    private lateinit var inputPassword: EditText
+
+    private val authRepository = AuthRepository()
+    private lateinit var session: SessionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,22 +46,91 @@ class AuthActivity : AppCompatActivity() {
         setContentView(R.layout.activity_auth)
         applySystemBarInsets()
 
+        session = SessionManager(this)
+
         tabLogin = findViewById(R.id.tabLogin)
         tabRegister = findViewById(R.id.tabRegister)
         nameGroup = findViewById(R.id.nameGroup)
         loginButtons = findViewById(R.id.loginButtons)
         btnRegister = findViewById(R.id.btnRegister)
+        btnLoginUser = findViewById(R.id.btnLoginUser)
+        btnLoginAdmin = findViewById(R.id.btnLoginAdmin)
+        inputName = findViewById(R.id.inputName)
+        inputEmail = findViewById(R.id.inputEmail)
+        inputPassword = findViewById(R.id.inputPassword)
 
         tabLogin.setOnClickListener { showLogin() }
         tabRegister.setOnClickListener { showRegister() }
 
-        // Semua tombol langsung membuka Dashboard.
-        findViewById<Button>(R.id.btnLoginUser).setOnClickListener { goToDashboard() }
-        findViewById<Button>(R.id.btnLoginAdmin).setOnClickListener { goToDashboard() }
-        btnRegister.setOnClickListener { goToDashboard() }
+        // Login: role dari database yang menentukan tujuan (admin / user).
+        btnLoginUser.setOnClickListener { doLogin() }
+        btnLoginAdmin.setOnClickListener { doLogin() }
+        btnRegister.setOnClickListener { doRegister() }
 
         showLogin()
     }
+
+    private fun doLogin() {
+        val email = inputEmail.text.toString().trim()
+        val password = inputPassword.text.toString()
+        if (email.isEmpty() || password.isEmpty()) {
+            toast("Email dan password wajib diisi")
+            return
+        }
+        setLoading(true)
+        authRepository.signIn(email, password) { result ->
+            setLoading(false)
+            result
+                .onSuccess { onAuthSuccess(it) }
+                .onFailure { toast(it.message ?: "Login gagal") }
+        }
+    }
+
+    private fun doRegister() {
+        val name = inputName.text.toString().trim()
+        val email = inputEmail.text.toString().trim()
+        val password = inputPassword.text.toString()
+        if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
+            toast("Nama, email, dan password wajib diisi")
+            return
+        }
+        if (password.length < 6) {
+            toast("Password minimal 6 karakter")
+            return
+        }
+        setLoading(true)
+        authRepository.signUp(name, email, password) { result ->
+            setLoading(false)
+            result
+                .onSuccess { onAuthSuccess(it) }
+                .onFailure { toast(it.message ?: "Pendaftaran gagal") }
+        }
+    }
+
+    private fun onAuthSuccess(user: AuthUser) {
+        session.save(user.userId, user.accessToken, user.role, user.email)
+        val target = if (user.role == "admin") {
+            AdminDashboardActivity::class.java
+        } else {
+            DashboardActivity::class.java
+        }
+        val intent = Intent(this, target).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        }
+        startActivity(intent)
+        finish()
+    }
+
+    private fun setLoading(loading: Boolean) {
+        val enabled = !loading
+        btnLoginUser.isEnabled = enabled
+        btnLoginAdmin.isEnabled = enabled
+        btnRegister.isEnabled = enabled
+        if (loading) toast("Memproses…")
+    }
+
+    private fun toast(message: String) =
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 
     private fun showLogin() {
         tabLogin.setBackgroundResource(R.drawable.bg_tab_active)
@@ -74,10 +158,6 @@ class AuthActivity : AppCompatActivity() {
         nameGroup.visibility = View.VISIBLE
         loginButtons.visibility = View.GONE
         btnRegister.visibility = View.VISIBLE
-    }
-
-    private fun goToDashboard() {
-        startActivity(Intent(this, DashboardActivity::class.java))
     }
 
     private fun applySystemBarInsets() {

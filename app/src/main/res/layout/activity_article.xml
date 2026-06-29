@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/surface"
     android:orientation="vertical"
-    tools:context=".ui.article.ArticleActivity">
+    tools:context=".ui.user.article.ArticleActivity">
 
     <!-- Toolbar -->
     <LinearLayout
@@ -71,6 +71,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_tag"
+                    android:id="@+id/tvArticleTag"
                     android:paddingHorizontal="10dp"
                     android:paddingVertical="4dp"
                     android:text="@string/article_tag"
@@ -82,6 +83,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
+                    android:id="@+id/tvArticleReadTime"
                     android:text="@string/article_read_time"
                     android:textColor="@color/text_muted"
                     android:textSize="12sp" />
@@ -92,6 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
+                android:id="@+id/tvArticleTitle"
                 android:text="@string/article_title"
                 android:textColor="@color/text_dark"
                 android:textSize="24sp"
@@ -124,6 +127,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
+                    android:id="@+id/tvArticleAuthor"
                     android:text="@string/article_author"
                     android:textColor="@color/text_dark"
                     android:textSize="14sp"
@@ -147,10 +151,12 @@
 
             <!-- Apa itu Stunting -->
             <TextView
+                android:id="@+id/tvSec1Title"
                 style="@style/ArticleSectionTitle"
                 android:text="@string/article_sec1_title" />
 
             <TextView
+                android:id="@+id/tvSec1Body"
                 style="@style/ArticleBody"
                 android:text="@string/article_sec1_body" />
 
@@ -619,3 +625,4 @@
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
+

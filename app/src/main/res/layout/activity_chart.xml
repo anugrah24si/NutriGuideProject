@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/screen_bg"
     android:orientation="vertical"
-    tools:context=".ui.chart.ChartActivity">
+    tools:context=".ui.user.chart.ChartActivity">
 
     <!-- Header -->
     <LinearLayout
@@ -43,180 +43,47 @@
             android:textSize="14sp" />
     </LinearLayout>
 
-    <!-- Tabs -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@drawable/bg_tab_track"
-        android:orientation="horizontal"
-        android:padding="4dp">
-
-        <TextView
-            android:id="@+id/tabDaily"
-            style="@style/MealTab"
-            android:background="@drawable/bg_tab_active"
-            android:text="@string/chart_tab_daily"
-            android:textColor="@color/text_dark"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tabWeekly"
-            style="@style/MealTab"
-            android:text="@string/chart_tab_weekly" />
-
-        <TextView
-            android:id="@+id/tabStatus"
-            style="@style/MealTab"
-            android:text="@string/chart_tab_status" />
-    </LinearLayout>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:fillViewport="true">
 
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:paddingHorizontal="16dp"
+            android:paddingTop="16dp"
             android:paddingBottom="16dp">
 
-            <!-- ===== Harian ===== -->
-            <LinearLayout
-                android:id="@+id/contentDaily"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+            <LinearLayout style="@style/ChartCard">
 
-                <LinearLayout style="@style/ChartCard">
+                <TextView
+                    style="@style/ChartCardTitle"
+                    android:text="@string/chart_status_title" />
 
-                    <TextView
-                        style="@style/ChartCardTitle"
-                        android:text="@string/chart_calorie_title" />
-
-                    <com.example.nutriguideproject.ui.chart.BarChartView
-                        android:id="@+id/barCalorie"
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_marginTop="12dp" />
-                </LinearLayout>
-
-                <LinearLayout style="@style/ChartCard">
-
-                    <TextView
-                        style="@style/ChartCardTitle"
-                        android:text="@string/chart_macro_dist" />
-
-                    <com.example.nutriguideproject.ui.chart.PieChartView
-                        android:id="@+id/pieMacro"
-                        android:layout_width="match_parent"
-                        android:layout_height="220dp"
-                        android:layout_marginTop="12dp" />
-                </LinearLayout>
-
-                <LinearLayout style="@style/ChartCard">
-
-                    <TextView
-                        style="@style/ChartCardTitle"
-                        android:text="@string/chart_macro_trend" />
-
-                    <com.example.nutriguideproject.ui.chart.LineChartView
-                        android:id="@+id/lineMacro"
-                        android:layout_width="match_parent"
-                        android:layout_height="180dp"
-                        android:layout_marginTop="12dp" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="12dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <View android:layout_width="10dp" android:layout_height="10dp" android:background="@drawable/bg_circle_lt_blue" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="4dp" android:layout_marginEnd="14dp" android:text="@string/chart_legend_protein" android:textColor="@color/chart_protein" android:textSize="12sp" />
-                        <View android:layout_width="10dp" android:layout_height="10dp" android:background="@drawable/bg_circle_lt_orange" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="4dp" android:layout_marginEnd="14dp" android:text="@string/chart_legend_carbs" android:textColor="@color/chart_carbs" android:textSize="12sp" />
-                        <View android:layout_width="10dp" android:layout_height="10dp" android:background="@drawable/bg_circle_lt_green" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="4dp" android:text="@string/chart_legend_fat" android:textColor="@color/chart_fat" android:textSize="12sp" />
-                    </LinearLayout>
-                </LinearLayout>
+                <com.example.nutriguideproject.ui.shared.chart.PieChartView
+                    android:id="@+id/pieStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_marginTop="12dp" />
             </LinearLayout>
 
-            <!-- ===== Mingguan ===== -->
-            <LinearLayout
-                android:id="@+id/contentWeekly"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
+            <LinearLayout style="@style/ChartCard">
 
-                <LinearLayout style="@style/ChartCard">
+                <TextView
+                    style="@style/ChartCardTitle"
+                    android:text="@string/chart_status_weight" />
 
-                    <TextView
-                        style="@style/ChartCardTitle"
-                        android:text="@string/chart_weekly_calorie" />
-
-                    <com.example.nutriguideproject.ui.chart.BarChartView
-                        android:id="@+id/barWeekly"
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_marginTop="12dp" />
-                </LinearLayout>
-
-                <LinearLayout style="@style/ChartCard">
-
-                    <TextView
-                        style="@style/ChartCardTitle"
-                        android:text="@string/chart_macro_trend" />
-
-                    <com.example.nutriguideproject.ui.chart.LineChartView
-                        android:id="@+id/lineWeekly"
-                        android:layout_width="match_parent"
-                        android:layout_height="180dp"
-                        android:layout_marginTop="12dp" />
-                </LinearLayout>
+                <com.example.nutriguideproject.ui.shared.chart.LineChartView
+                    android:id="@+id/lineWeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="12dp" />
             </LinearLayout>
 
-            <!-- ===== Status ===== -->
-            <LinearLayout
-                android:id="@+id/contentStatus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <LinearLayout style="@style/ChartCard">
-
-                    <TextView
-                        style="@style/ChartCardTitle"
-                        android:text="@string/chart_status_title" />
-
-                    <com.example.nutriguideproject.ui.chart.PieChartView
-                        android:id="@+id/pieStatus"
-                        android:layout_width="match_parent"
-                        android:layout_height="220dp"
-                        android:layout_marginTop="12dp" />
-                </LinearLayout>
-
-                <LinearLayout style="@style/ChartCard">
-
-                    <TextView
-                        style="@style/ChartCardTitle"
-                        android:text="@string/chart_status_weight" />
-
-                    <com.example.nutriguideproject.ui.chart.LineChartView
-                        android:id="@+id/lineWeight"
-                        android:layout_width="match_parent"
-                        android:layout_height="180dp"
-                        android:layout_marginTop="12dp" />
-                </LinearLayout>
-            </LinearLayout>
-
-        </FrameLayout>
+        </LinearLayout>
     </ScrollView>
 
     <!-- Bottom navigation bar -->

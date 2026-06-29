@@ -291,6 +291,10 @@
         <item name="android:textColor">@color/macro_fat</item>
     </style>
 
+    <style name="MacroFiber" parent="MacroValue">
+        <item name="android:textColor">@color/macro_fiber</item>
+    </style>
+
     <style name="MacroLabel">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -459,6 +463,45 @@
         <item name="android:textColor">@color/text_dark</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- Admin stat cards -->
+    <style name="StatCard">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/bg_card</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">14dp</item>
+    </style>
+
+    <style name="StatValue">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:textColor">@color/text_dark</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="StatLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:textColor">@color/text_muted</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="StatBadge">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:background">@drawable/bg_tag</item>
+        <item name="android:paddingHorizontal">8dp</item>
+        <item name="android:paddingVertical">3dp</item>
+        <item name="android:textColor">@color/badge_green_text</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
 </resources>

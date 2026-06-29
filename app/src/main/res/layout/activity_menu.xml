@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/screen_bg"
     android:orientation="vertical"
-    tools:context=".ui.menu.MenuActivity">
+    tools:context=".ui.user.menu.MenuActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -261,3 +261,4 @@
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
+

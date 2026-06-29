@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/screen_bg"
     android:orientation="vertical"
-    tools:context=".ui.recommendation.RecommendationActivity">
+    tools:context=".ui.user.recommendation.RecommendationActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -504,3 +504,4 @@
     </LinearLayout>
 
 </LinearLayout>
+

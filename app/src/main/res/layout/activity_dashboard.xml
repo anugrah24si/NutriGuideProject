@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/screen_bg"
     android:orientation="vertical"
-    tools:context=".ui.dashboard.DashboardActivity">
+    tools:context=".ui.user.dashboard.DashboardActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -129,6 +129,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/tvCalorieValue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/dash_calorie_value"
@@ -166,6 +167,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:id="@+id/tvCaloriePercent"
                         android:text="@string/dash_calorie_percent"
                         android:textColor="@color/text_on_dark_muted"
                         android:textSize="12sp" />
@@ -173,6 +175,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/tvCalorieRemaining"
                         android:text="@string/dash_calorie_remaining"
                         android:textColor="@color/text_on_dark_muted"
                         android:textSize="12sp" />
@@ -253,6 +256,7 @@
                     <View style="@style/NutritionDot" />
 
                     <TextView
+                        android:id="@+id/tvProteinVal"
                         style="@style/NutritionValue"
                         android:text="52g" />
 
@@ -276,6 +280,7 @@
                     <View style="@style/NutritionDot" />
 
                     <TextView
+                        android:id="@+id/tvCarbsVal"
                         style="@style/NutritionValue"
                         android:text="180g" />
 
@@ -299,6 +304,7 @@
                     <View style="@style/NutritionDot" />
 
                     <TextView
+                        android:id="@+id/tvFatVal"
                         style="@style/NutritionValue"
                         android:text="45g" />
 
@@ -335,104 +341,23 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <!-- Sarapan -->
-            <LinearLayout style="@style/FoodLogCard">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/logRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:nestedScrollingEnabled="false" />
 
-                <FrameLayout style="@style/FoodLogIconTile">
-
-                    <ImageView
-                        style="@style/FoodLogIcon"
-                        android:src="@drawable/ic_restaurant" />
-                </FrameLayout>
-
-                <LinearLayout style="@style/FoodLogText">
-
-                    <TextView
-                        style="@style/FoodLogName"
-                        android:text="Sarapan" />
-
-                    <TextView
-                        style="@style/FoodLogDesc"
-                        android:text="Nasi Goreng + Telur" />
-                </LinearLayout>
-
-                <LinearLayout style="@style/FoodLogTrailing">
-
-                    <TextView
-                        style="@style/FoodLogKcal"
-                        android:text="450 kkal" />
-
-                    <TextView
-                        style="@style/FoodLogTime"
-                        android:text="08:00" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- Makan Siang -->
-            <LinearLayout style="@style/FoodLogCard">
-
-                <FrameLayout style="@style/FoodLogIconTile">
-
-                    <ImageView
-                        style="@style/FoodLogIcon"
-                        android:src="@drawable/ic_restaurant" />
-                </FrameLayout>
-
-                <LinearLayout style="@style/FoodLogText">
-
-                    <TextView
-                        style="@style/FoodLogName"
-                        android:text="Makan Siang" />
-
-                    <TextView
-                        style="@style/FoodLogDesc"
-                        android:text="Ayam Bakar + Sayur" />
-                </LinearLayout>
-
-                <LinearLayout style="@style/FoodLogTrailing">
-
-                    <TextView
-                        style="@style/FoodLogKcal"
-                        android:text="650 kkal" />
-
-                    <TextView
-                        style="@style/FoodLogTime"
-                        android:text="12:30" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- Snack -->
-            <LinearLayout style="@style/FoodLogCard">
-
-                <FrameLayout style="@style/FoodLogIconTile">
-
-                    <ImageView
-                        style="@style/FoodLogIcon"
-                        android:src="@drawable/ic_apple_filled" />
-                </FrameLayout>
-
-                <LinearLayout style="@style/FoodLogText">
-
-                    <TextView
-                        style="@style/FoodLogName"
-                        android:text="Snack" />
-
-                    <TextView
-                        style="@style/FoodLogDesc"
-                        android:text="Pisang + Susu" />
-                </LinearLayout>
-
-                <LinearLayout style="@style/FoodLogTrailing">
-
-                    <TextView
-                        style="@style/FoodLogKcal"
-                        android:text="350 kkal" />
-
-                    <TextView
-                        style="@style/FoodLogTime"
-                        android:text="15:00" />
-                </LinearLayout>
-            </LinearLayout>
+            <TextView
+                android:id="@+id/tvLogEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:text="@string/dash_log_empty"
+                android:textColor="@color/text_muted"
+                android:textSize="13sp"
+                android:visibility="gone" />
 
             <!-- Article header -->
             <LinearLayout
@@ -499,6 +424,7 @@
                             android:background="@drawable/bg_tag"
                             android:paddingHorizontal="10dp"
                             android:paddingVertical="4dp"
+                            android:id="@+id/tvDashArticleTag"
                             android:text="@string/dash_article_tag"
                             android:textColor="@color/badge_green_text"
                             android:textSize="11sp"
@@ -508,6 +434,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
+                            android:id="@+id/tvDashArticleRead"
                             android:text="@string/dash_article_read"
                             android:textColor="@color/text_muted"
                             android:textSize="12sp" />
@@ -517,6 +444,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:id="@+id/tvDashArticleTitle"
                         android:text="@string/dash_article_title"
                         android:textColor="@color/text_dark"
                         android:textSize="16sp"
@@ -526,6 +454,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
+                        android:id="@+id/tvDashArticleDesc"
                         android:text="@string/dash_article_desc"
                         android:textColor="@color/text_muted"
                         android:textSize="13sp" />
@@ -658,4 +587,6 @@
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
+
+
 

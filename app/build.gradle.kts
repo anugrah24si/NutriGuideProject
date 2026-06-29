@@ -1,6 +1,17 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
 }
+
+// Baca kredensial Supabase dari local.properties (jangan di-commit ke repo).
+val supabaseProps = Properties().apply {
+    val f = rootProject.file("local.properties")
+    if (f.exists()) FileInputStream(f).use { load(it) }
+}
+val supabaseUrl: String = supabaseProps.getProperty("SUPABASE_URL") ?: ""
+val supabaseAnonKey: String = supabaseProps.getProperty("SUPABASE_ANON_KEY") ?: ""
 
 android {
     namespace = "com.example.nutriguideproject"
@@ -16,6 +27,13 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "SUPABASE_URL", "\"$supabaseUrl\"")
+        buildConfigField("String", "SUPABASE_ANON_KEY", "\"$supabaseAnonKey\"")
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     buildTypes {
@@ -39,6 +57,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.okhttp)
+    implementation(libs.androidx.recyclerview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
