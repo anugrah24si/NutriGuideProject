@@ -43,6 +43,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:id="@+id/tvProfileInitials"
                             android:text="@string/profile_initials"
                             android:textColor="@color/text_on_dark"
                             android:textSize="30sp"
@@ -60,6 +61,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:id="@+id/tvProfileName"
                     android:text="@string/profile_name"
                     android:textColor="@color/text_on_dark"
                     android:textSize="24sp"
@@ -69,6 +71,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
+                    android:id="@+id/tvProfileEmail"
                     android:text="@string/profile_email"
                     android:textColor="@color/text_on_dark_muted"
                     android:textSize="14sp" />
@@ -237,7 +240,7 @@
                         </FrameLayout>
                         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
                             <TextView style="@style/InfoRowLabel" android:text="@string/profile_label_name" />
-                            <TextView style="@style/InfoRowValue" android:text="@string/profile_name" />
+                            <TextView android:id="@+id/tvInfoName" style="@style/InfoRowValue" android:text="@string/profile_name" />
                         </LinearLayout>
                         <ImageView style="@style/InfoChevron" />
                     </LinearLayout>
@@ -250,7 +253,7 @@
                         </FrameLayout>
                         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
                             <TextView style="@style/InfoRowLabel" android:text="@string/profile_label_email" />
-                            <TextView style="@style/InfoRowValue" android:text="@string/profile_email" />
+                            <TextView android:id="@+id/tvInfoEmail" style="@style/InfoRowValue" android:text="@string/profile_email" />
                         </LinearLayout>
                         <ImageView style="@style/InfoChevron" />
                     </LinearLayout>
@@ -262,8 +265,8 @@
                             <ImageView style="@style/InfoIcon" android:src="@drawable/ic_phone" app:tint="@color/pastel_purple" />
                         </FrameLayout>
                         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
-                            <TextView style="@style/InfoRowLabel" android:text="@string/profile_label_phone" />
-                            <TextView style="@style/InfoRowValue" android:text="@string/profile_value_phone" />
+                            <TextView style="@style/InfoRowLabel" android:text="@string/profile_label_age" />
+                            <TextView android:id="@+id/tvInfoAge" style="@style/InfoRowValue" android:text="-" />
                         </LinearLayout>
                         <ImageView style="@style/InfoChevron" />
                     </LinearLayout>
@@ -275,8 +278,8 @@
                             <ImageView style="@style/InfoIcon" android:src="@drawable/ic_calendar" app:tint="@color/pastel_orange" />
                         </FrameLayout>
                         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
-                            <TextView style="@style/InfoRowLabel" android:text="@string/profile_label_birth" />
-                            <TextView style="@style/InfoRowValue" android:text="@string/profile_value_birth" />
+                            <TextView style="@style/InfoRowLabel" android:text="@string/profile_label_goal" />
+                            <TextView android:id="@+id/tvInfoGoal" style="@style/InfoRowValue" android:text="-" />
                         </LinearLayout>
                         <ImageView style="@style/InfoChevron" />
                     </LinearLayout>
@@ -300,7 +303,7 @@
                         </FrameLayout>
                         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
                             <TextView style="@style/InfoRowLabel" android:text="@string/profile_label_weight" />
-                            <TextView style="@style/InfoRowValue" android:text="@string/profile_value_weight" />
+                            <TextView android:id="@+id/tvHealthWeight" style="@style/InfoRowValue" android:text="@string/profile_value_weight" />
                         </LinearLayout>
                         <ImageView style="@style/InfoChevron" />
                     </LinearLayout>
@@ -313,7 +316,7 @@
                         </FrameLayout>
                         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
                             <TextView style="@style/InfoRowLabel" android:text="@string/profile_label_height" />
-                            <TextView style="@style/InfoRowValue" android:text="@string/profile_value_height" />
+                            <TextView android:id="@+id/tvHealthHeight" style="@style/InfoRowValue" android:text="@string/profile_value_height" />
                         </LinearLayout>
                         <ImageView style="@style/InfoChevron" />
                     </LinearLayout>
@@ -326,7 +329,7 @@
                         </FrameLayout>
                         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
                             <TextView style="@style/InfoRowLabel" android:text="@string/profile_label_nutrition" />
-                            <TextView style="@style/InfoRowValue" android:text="@string/profile_value_nutrition" />
+                            <TextView android:id="@+id/tvHealthNutrition" style="@style/InfoRowValue" android:text="@string/profile_value_nutrition" />
                         </LinearLayout>
                         <ImageView style="@style/InfoChevron" />
                     </LinearLayout>
@@ -339,13 +342,20 @@
                         </FrameLayout>
                         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
                             <TextView style="@style/InfoRowLabel" android:text="@string/profile_label_activity" />
-                            <TextView style="@style/InfoRowValue" android:text="@string/profile_value_activity" />
+                            <TextView android:id="@+id/tvHealthActivity" style="@style/InfoRowValue" android:text="@string/profile_value_activity" />
                         </LinearLayout>
                         <ImageView style="@style/InfoChevron" />
                     </LinearLayout>
                 </LinearLayout>
 
                 <!-- ===== Pengaturan ===== -->
+                <Button
+                    android:id="@+id/btnEditProfile"
+                    style="@style/PrimaryGreenButton"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/profile_edit" />
+
                 <TextView
                     style="@style/ProfileSectionLabel"
                     android:text="@string/profile_settings" />

@@ -207,6 +207,13 @@
     <string name="profile_value_nutrition">2,000 kkal/hari</string>
     <string name="profile_label_activity">Tingkat Aktivitas</string>
     <string name="profile_value_activity">Sedang</string>
+    <string name="profile_label_age">Umur</string>
+    <string name="profile_label_goal">Tujuan</string>
+    <string name="profile_edit">Ubah Data Pribadi</string>
+    <string name="profile_saved">Profil berhasil disimpan</string>
+    <string name="profile_load_error">Gagal memuat profil: %1$s</string>
+    <string name="profile_age_fmt">%1$d tahun</string>
+    <string name="pe_target">Target Kalori (kkal/hari)</string>
 
     <string name="profile_settings">Pengaturan</string>
     <string name="profile_notif">Notifikasi</string>

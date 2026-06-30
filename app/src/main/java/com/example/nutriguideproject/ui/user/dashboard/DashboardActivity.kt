@@ -44,7 +44,12 @@ class DashboardActivity : AppCompatActivity() {
         applySystemBarInsets()
         setupQuickActions()
         setupLogList()
+        showGreeting()
         MainNav.setup(this, MainNav.Tab.HOME)
+    }
+
+    private fun showGreeting() {
+        findViewById<TextView>(R.id.tvGreetingName).text = "${session.displayName()} 👋"
     }
 
     override fun onStart() {

@@ -1,0 +1,15 @@
+# =====================================================================
+# Template konfigurasi lokal NutriGuide
+# Cara pakai: SALIN file ini menjadi "local.properties" (tanpa .example)
+# lalu pastikan nilainya terisi. File local.properties TIDAK di-commit
+# ke Git (lihat .gitignore), jadi tiap anggota tim wajib membuatnya.
+# =====================================================================
+
+# Lokasi Android SDK.
+# Biasanya Android Studio mengisi baris ini OTOMATIS saat membuka project.
+# Jika tidak ada, sesuaikan dengan path SDK di komputermu, contoh:
+# sdk.dir=C\:\\Users\\NAMA_KAMU\\AppData\\Local\\Android\\Sdk
+
+# Kredensial Supabase (publishable/anon key — aman dibagikan ke tim).
+SUPABASE_URL=https://ixytcsomlhfapfvlqnuq.supabase.co
+SUPABASE_ANON_KEY=sb_publishable_S0-2-1QHyIEiJ2N9H-m__Q_lRa25Brm

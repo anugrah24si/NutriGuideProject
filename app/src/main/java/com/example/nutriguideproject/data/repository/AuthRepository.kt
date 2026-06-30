@@ -15,7 +15,8 @@ data class AuthUser(
     val userId: String,
     val accessToken: String,
     val role: String,
-    val email: String
+    val email: String,
+    val fullName: String
 )
 
 /**
@@ -47,8 +48,8 @@ class AuthRepository {
             val obj = JSONObject(body)
             val token = obj.getString("access_token")
             val uid = obj.getJSONObject("user").getString("id")
-            val role = fetchRole(uid, token)
-            AuthUser(uid, token, role, email)
+            val (role, name) = fetchProfile(uid, token)
+            AuthUser(uid, token, role, email, name)
         }
 
     /** Daftar akun baru (otomatis role = member). */
@@ -74,8 +75,9 @@ class AuthRepository {
             val token = obj.optString("access_token", "")
             if (token.isNotBlank()) {
                 val uid = obj.getJSONObject("user").getString("id")
-                val role = runCatching { fetchRole(uid, token) }.getOrDefault("member")
-                AuthUser(uid, token, role, email)
+                val (role, name) = runCatching { fetchProfile(uid, token) }
+                    .getOrDefault("member" to fullName)
+                AuthUser(uid, token, role, email, name.ifBlank { fullName })
             } else {
                 // Tidak ada session (mis. perlu verifikasi) → coba login langsung.
                 signInBlocking(email, password)
@@ -97,21 +99,24 @@ class AuthRepository {
         val obj = JSONObject(body)
         val token = obj.getString("access_token")
         val uid = obj.getJSONObject("user").getString("id")
-        val role = fetchRole(uid, token)
-        return AuthUser(uid, token, role, email)
+        val (role, name) = fetchProfile(uid, token)
+        return AuthUser(uid, token, role, email, name)
     }
 
-    private fun fetchRole(userId: String, accessToken: String): String {
+    /** Mengambil role & full_name dari tabel profiles. */
+    private fun fetchProfile(userId: String, accessToken: String): Pair<String, String> {
         val request = Request.Builder()
-            .url("${SupabaseClient.baseUrl}${SupabaseClient.REST}/profiles?select=role&id=eq.$userId")
+            .url("${SupabaseClient.baseUrl}${SupabaseClient.REST}/profiles?select=role,full_name&id=eq.$userId")
             .addHeader("apikey", SupabaseClient.anonKey)
             .addHeader("Authorization", "Bearer $accessToken")
             .get()
             .build()
         val (code, body) = execute(request)
-        if (code !in 200..299) return "member"
+        if (code !in 200..299) return "member" to ""
         val arr = JSONArray(body)
-        return if (arr.length() > 0) arr.getJSONObject(0).optString("role", "member") else "member"
+        if (arr.length() == 0) return "member" to ""
+        val o = arr.getJSONObject(0)
+        return o.optString("role", "member") to o.optString("full_name", "")
     }
 
     private fun execute(request: Request): Pair<Int, String> {

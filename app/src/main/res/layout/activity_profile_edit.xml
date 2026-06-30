@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profileEditRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen_bg"
+    android:orientation="vertical"
+    tools:context=".ui.user.profile.ProfileEditActivity">
+
+    <!-- Toolbar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_auth_header"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="14dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/profile_edit"
+            android:padding="8dp"
+            android:src="@drawable/ic_arrow_back" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp"
+            android:text="@string/profile_edit"
+            android:textColor="@color/text_on_dark"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView style="@style/MenuLabel" android:layout_marginTop="0dp" android:text="@string/profile_label_name" />
+
+                <EditText
+                    android:id="@+id/peName"
+                    style="@style/MenuFieldGray"
+                    android:hint="@string/auth_hint_name"
+                    android:inputType="textPersonName"
+                    android:autofillHints="name" />
+
+                <TextView style="@style/MenuLabel" android:text="@string/menu_age" />
+
+                <EditText
+                    android:id="@+id/peAge"
+                    style="@style/MenuFieldGray"
+                    android:hint="@string/menu_age_default"
+                    android:inputType="number" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView style="@style/MenuLabel" android:text="@string/menu_weight" />
+                        <EditText android:id="@+id/peWeight" style="@style/MenuFieldGray" android:hint="@string/menu_weight_default" android:inputType="numberDecimal" />
+                    </LinearLayout>
+
+                    <Space android:layout_width="12dp" android:layout_height="1dp" />
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView style="@style/MenuLabel" android:text="@string/menu_height" />
+                        <EditText android:id="@+id/peHeight" style="@style/MenuFieldGray" android:hint="@string/menu_height_default" android:inputType="numberDecimal" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView style="@style/MenuLabel" android:text="@string/menu_activity" />
+
+                <TextView
+                    android:id="@+id/peActivity"
+                    style="@style/MenuFieldSelect"
+                    android:hint="@string/menu_activity_hint"
+                    android:textColorHint="@color/field_hint" />
+
+                <TextView style="@style/MenuLabel" android:text="@string/menu_goal" />
+
+                <TextView
+                    android:id="@+id/peGoal"
+                    style="@style/MenuFieldSelect"
+                    android:hint="@string/menu_goal_hint"
+                    android:textColorHint="@color/field_hint" />
+
+                <TextView style="@style/MenuLabel" android:text="@string/pe_target" />
+
+                <EditText
+                    android:id="@+id/peTarget"
+                    style="@style/MenuFieldGray"
+                    android:hint="@string/menu_height_default"
+                    android:inputType="number" />
+
+                <Button
+                    android:id="@+id/btnSaveProfile"
+                    style="@style/PrimaryGreenButton"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="20dp"
+                    android:drawableStart="@drawable/ic_save"
+                    android:drawablePadding="6dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="@string/form_save" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

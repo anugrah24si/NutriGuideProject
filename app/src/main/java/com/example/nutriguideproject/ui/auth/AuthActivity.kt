@@ -108,7 +108,7 @@ class AuthActivity : AppCompatActivity() {
     }
 
     private fun onAuthSuccess(user: AuthUser) {
-        session.save(user.userId, user.accessToken, user.role, user.email)
+        session.save(user.userId, user.accessToken, user.role, user.email, user.fullName)
         val target = if (user.role == "admin") {
             AdminDashboardActivity::class.java
         } else {
