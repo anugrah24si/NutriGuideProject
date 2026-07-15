@@ -23,8 +23,13 @@
     <string name="auth_hint_name">John Doe</string>
     <string name="auth_hint_email">nama@email.com</string>
     <string name="auth_hint_password">••••••••</string>
+    <string name="auth_show_password">Tampilkan password</string>
+    <string name="auth_hide_password">Sembunyikan password</string>
     <string name="auth_login_user">Masuk sebagai User</string>
     <string name="auth_login_admin">Masuk sebagai Admin</string>
+    <string name="auth_role_mismatch_user">Akun ini adalah Admin. Gunakan tombol \"Masuk sebagai Admin\".</string>
+    <string name="auth_role_mismatch_admin">Akun ini bukan Admin. Gunakan tombol \"Masuk sebagai User\".</string>
+    <string name="auth_login_failed">Email atau password salah</string>
     <string name="auth_register">Daftar Sekarang</string>
 
     <!-- Dashboard -->
@@ -247,7 +252,6 @@
     <string name="admin_stat_log_badge">Aktif</string>
 
     <string name="admin_chart_growth">Pertumbuhan Pengguna</string>
-    <string name="admin_chart_activity">Aktivitas Log Makanan (7 Hari)</string>
 
     <string name="admin_quick">Aksi Cepat</string>
     <string name="admin_add_food">Tambah Data Makanan</string>

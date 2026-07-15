@@ -1,8 +1,8 @@
 package com.example.nutriguideproject.ui.admin
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -12,13 +12,16 @@ import com.example.nutriguideproject.R
 import com.example.nutriguideproject.data.local.SessionManager
 import com.example.nutriguideproject.data.repository.AdminRepository
 import com.example.nutriguideproject.data.repository.AdminStats
-import com.example.nutriguideproject.ui.shared.chart.BarChartView
 import com.example.nutriguideproject.ui.shared.chart.LineChartView
 
 /**
  * Halaman utama Admin (Admin Dashboard).
- * Dibuka saat pengguna memilih "Masuk sebagai Admin" pada halaman Auth.
- * Menampilkan ringkasan statistik, grafik, dan aksi cepat (data statis).
+ * Dibuka saat pengguna login dengan role admin.
+ * Menampilkan ringkasan statistik, grafik, dan aksi cepat:
+ * - Tambah Data Makanan → ManageFoodActivity + form tambah terbuka
+ * - Buat Artikel Edukasi → ManageArticleActivity
+ * - Kelola Database → ManageFoodActivity (daftar)
+ * - Lihat Daftar User → UserListActivity
  */
 class AdminDashboardActivity : AppCompatActivity() {
 
@@ -56,6 +59,7 @@ class AdminDashboardActivity : AppCompatActivity() {
 
     private fun color(id: Int) = ContextCompat.getColor(this, id)
 
+    /** Isi chart "Pertumbuhan Pengguna" (line chart). Bar chart aktivitas 7 hari sudah dihapus. */
     private fun populateCharts() {
         findViewById<LineChartView>(R.id.lineGrowth).setData(
             seriesList = listOf(
@@ -67,38 +71,42 @@ class AdminDashboardActivity : AppCompatActivity() {
             labels = arrayOf("Jan", "Feb", "Mar", "Apr", "Mei"),
             maxValue = 600f
         )
-
-        findViewById<BarChartView>(R.id.barActivity).setData(
-            values = floatArrayOf(450f, 500f, 520f, 600f, 580f, 400f, 380f),
-            labels = arrayOf("Sen", "Sel", "Rab", "Kam", "Jum", "Sab", "Min"),
-            maxValue = 800f
-        )
     }
 
+
+    /**
+     * Menghubungkan 4 kartu "Aksi Cepat" di dashboard admin.
+     * Layout: activity_admin_dashboard.xml (rowAddFood, rowCreateArticle, ...).
+     */
     private fun setupQuickActions() {
-        // "Kelola Database" membuka halaman Kelola Data Makanan.
-        findViewById<View>(R.id.rowManageDb).setOnClickListener {
-            startActivity(android.content.Intent(this, ManageFoodActivity::class.java))
+        // 1) Tambah Data Makanan
+        //    Shortcut langsung ke form input makanan baru.
+        //    Extra EXTRA_OPEN_ADD_FORM=true → ManageFoodActivity memanggil showAddForm().
+        findViewById<View>(R.id.rowAddFood).setOnClickListener {
+            val intent = Intent(this, ManageFoodActivity::class.java).apply {
+                putExtra(ManageFoodActivity.EXTRA_OPEN_ADD_FORM, true)
+            }
+            startActivity(intent)
         }
-        // "Buat Artikel Edukasi" membuka halaman Kelola Artikel.
+
+        // 2) Buat Artikel Edukasi → halaman kelola artikel
         findViewById<View>(R.id.rowCreateArticle).setOnClickListener {
-            startActivity(android.content.Intent(this, ManageArticleActivity::class.java))
+            startActivity(Intent(this, ManageArticleActivity::class.java))
         }
-        // "Lihat Daftar User" membuka halaman Daftar User.
+
+        // 3) Kelola Database → daftar makanan (tanpa auto-open form)
+        findViewById<View>(R.id.rowManageDb).setOnClickListener {
+            startActivity(Intent(this, ManageFoodActivity::class.java))
+        }
+
+        // 4) Lihat Daftar User → daftar pengguna
         findViewById<View>(R.id.rowUserList).setOnClickListener {
-            startActivity(android.content.Intent(this, UserListActivity::class.java))
+            startActivity(Intent(this, UserListActivity::class.java))
         }
-        bindComingSoon(R.id.rowAddFood, "Tambah Data Makanan")
     }
 
     private fun setupBottomNav() {
         AdminNav.setup(this, AdminNav.Tab.DASHBOARD)
-    }
-
-    private fun bindComingSoon(viewId: Int, label: String) {
-        findViewById<View>(viewId).setOnClickListener {
-            Toast.makeText(this, "$label segera hadir", Toast.LENGTH_SHORT).show()
-        }
     }
 
     private fun applySystemBarInsets() {

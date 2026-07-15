@@ -22,8 +22,20 @@ import com.example.nutriguideproject.data.repository.FoodRepository
 /**
  * Halaman admin "Kelola Data Makanan" — CRUD nyata ke Supabase.
  * Daftar dimuat dari tabel foods (RecyclerView). Form tambah/edit tampil inline.
+ *
+ * Bisa dibuka dari Aksi Cepat "Tambah Data Makanan" dengan extra
+ * [EXTRA_OPEN_ADD_FORM]=true agar form tambah langsung terbuka.
  */
 class ManageFoodActivity : AppCompatActivity() {
+
+    companion object {
+        /**
+         * Extra Intent (Boolean).
+         * true  → buka form "Tambah Data Makanan Baru" otomatis (shortcut dashboard).
+         * false / absen → tampil daftar saja (bottom nav / Kelola Database).
+         */
+        const val EXTRA_OPEN_ADD_FORM = "open_add_form"
+    }
 
     private lateinit var session: SessionManager
     private lateinit var repository: FoodRepository
@@ -59,6 +71,14 @@ class ManageFoodActivity : AppCompatActivity() {
         setupRecycler()
         setupForm()
         AdminNav.setup(this, AdminNav.Tab.FOOD)
+
+        // Shortcut dari Admin Dashboard → langsung tampilkan form tambah.
+        // Hanya di onCreate (bukan onStart) supaya rotasi/refresh tidak memaksa form lagi.
+        if (intent.getBooleanExtra(EXTRA_OPEN_ADD_FORM, false)) {
+            showAddForm()
+            // Extra dibersihkan agar tombol back / recreate tidak buka form ulang.
+            intent.removeExtra(EXTRA_OPEN_ADD_FORM)
+        }
     }
 
     override fun onStart() {

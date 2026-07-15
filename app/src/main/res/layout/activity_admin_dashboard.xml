@@ -139,26 +139,12 @@
                         android:layout_marginTop="12dp" />
                 </LinearLayout>
 
-                <!-- Activity chart -->
-                <LinearLayout style="@style/ChartCard">
-
-                    <TextView
-                        style="@style/ChartCardTitle"
-                        android:text="@string/admin_chart_activity" />
-
-                    <com.example.nutriguideproject.ui.shared.chart.BarChartView
-                        android:id="@+id/barActivity"
-                        android:layout_width="match_parent"
-                        android:layout_height="180dp"
-                        android:layout_marginTop="12dp" />
-                </LinearLayout>
-
                 <!-- Aksi Cepat -->
                 <TextView
                     style="@style/ProfileSectionLabel"
                     android:text="@string/admin_quick" />
 
-                <LinearLayout
+<LinearLayout
                     android:id="@+id/rowAddFood"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
