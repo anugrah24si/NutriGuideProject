@@ -23,6 +23,7 @@ import com.example.nutriguideproject.data.remote.RealtimeTable
 import com.example.nutriguideproject.data.repository.FoodLogRepository
 import com.example.nutriguideproject.data.repository.FoodRepository
 import com.example.nutriguideproject.ui.user.common.MainNav
+import com.example.nutriguideproject.ui.user.dashboard.LogTodayAdapter
 
 /**
  * Halaman Log Makanan.
@@ -34,7 +35,9 @@ class LogActivity : AppCompatActivity() {
     private lateinit var mealTabs: List<TextView>
     private lateinit var btnAddManual: Button
     private lateinit var adapter: UserFoodAdapter
+    private lateinit var logTodayAdapter: LogTodayAdapter
     private lateinit var tvEmpty: TextView
+    private lateinit var tvEmptyTodayLog: TextView
     private lateinit var repository: FoodRepository
     private var realtime: RealtimeTable? = null
     private val session by lazy { SessionManager(this) }
@@ -52,9 +55,11 @@ class LogActivity : AppCompatActivity() {
         repository = FoodRepository(session)
         btnAddManual = findViewById(R.id.btnAddManual)
         tvEmpty = findViewById(R.id.tvEmptyLog)
+        tvEmptyTodayLog = findViewById(R.id.tvEmptyTodayLog)
 
         setupMealTabs()
         setupFoodList()
+        setupTodayLogList()
         setupSearch()
         setupManualInput()
         MainNav.setup(this, MainNav.Tab.LOG)
@@ -65,6 +70,7 @@ class LogActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         loadFoods()
+        loadTodayLogs()
         realtime = RealtimeTable("foods", session.accessToken) { loadFoods() }.also { it.connect() }
     }
 
@@ -79,6 +85,24 @@ class LogActivity : AppCompatActivity() {
         findViewById<RecyclerView>(R.id.foodRecyclerLog).apply {
             layoutManager = LinearLayoutManager(this@LogActivity)
             adapter = this@LogActivity.adapter
+        }
+    }
+
+    private fun setupTodayLogList() {
+        logTodayAdapter = LogTodayAdapter()
+        findViewById<RecyclerView>(R.id.logTodayRecycler).apply {
+            layoutManager = LinearLayoutManager(this@LogActivity)
+            adapter = logTodayAdapter
+        }
+    }
+
+    private fun loadTodayLogs() {
+        logRepository.getTodayLogs { result ->
+            result.onSuccess { logs ->
+                logTodayAdapter.submit(logs)
+                tvEmptyTodayLog.visibility = if (logs.isEmpty()) View.VISIBLE else View.GONE
+            }
+            // gagal/offline: biarkan tampilan seadanya
         }
     }
 
@@ -158,7 +182,10 @@ class LogActivity : AppCompatActivity() {
             fatG = food.fatG
         )
         logRepository.addLog(log) { result ->
-            result.onSuccess { toast(getString(R.string.log_added, food.name, selectedMeal)) }
+            result.onSuccess {
+                toast(getString(R.string.log_added, food.name, selectedMeal))
+                loadTodayLogs()
+            }
                 .onFailure { toast(it.message ?: "Gagal menyimpan log") }
         }
     }
@@ -193,6 +220,7 @@ class LogActivity : AppCompatActivity() {
             result.onSuccess {
                 toast(getString(R.string.log_added, name, selectedMeal))
                 clearManualInput()
+                loadTodayLogs()
             }.onFailure { toast(it.message ?: "Gagal menyimpan log") }
         }
     }
