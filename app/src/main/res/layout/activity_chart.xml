@@ -68,6 +68,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="220dp"
                     android:layout_marginTop="12dp" />
+
+                <TextView
+                    android:id="@+id/tvPieSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:textColor="@color/text_muted"
+                    android:textSize="13sp" />
             </LinearLayout>
 
             <LinearLayout style="@style/ChartCard">
@@ -75,6 +84,14 @@
                 <TextView
                     style="@style/ChartCardTitle"
                     android:text="@string/chart_status_weight" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Total kalori per hari (7 hari terakhir)"
+                    android:textColor="@color/text_muted"
+                    android:textSize="12sp" />
 
                 <com.example.nutriguideproject.ui.shared.chart.LineChartView
                     android:id="@+id/lineWeight"

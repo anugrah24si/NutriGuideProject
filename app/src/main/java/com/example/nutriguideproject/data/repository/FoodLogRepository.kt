@@ -49,10 +49,46 @@ class FoodLogRepository(private val session: SessionManager) {
         (0 until arr.length()).map { FoodLog.fromJson(arr.getJSONObject(it)) }
     }
 
+    /**
+     * Ambil log 7 hari terakhir (termasuk hari ini) milik user.
+     * Hasil dikelompokkan per tanggal lokal: Map<"yyyy-MM-dd", List<FoodLog>>
+     */
+    fun getLast7DaysLogs(callback: (Result<Map<String, List<FoodLog>>>) -> Unit) = runAsync(callback) {
+        val uid = session.userId ?: throw IllegalStateException("Sesi tidak ditemukan.")
+        val startIso = startOf7DaysAgoUtcIso()
+        val url = "$endpoint?user_id=eq.$uid&logged_at=gte.$startIso&order=logged_at.asc"
+        val request = baseRequest(url).get().build()
+        val (code, body) = execute(request)
+        if (code !in 200..299) throw RuntimeException(parseError(body, "Gagal memuat log mingguan"))
+        val arr = JSONArray(body)
+        val logs = (0 until arr.length()).map { FoodLog.fromJson(arr.getJSONObject(it)) }
+        // Kelompokkan per tanggal lokal (yyyy-MM-dd)
+        val dateFmt = SimpleDateFormat("yyyy-MM-dd", Locale.US)
+        val utcParser = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US).apply {
+            timeZone = TimeZone.getTimeZone("UTC")
+        }
+        logs.groupBy { log ->
+            val iso = log.loggedAt?.take(19) ?: return@groupBy "unknown"
+            runCatching { dateFmt.format(utcParser.parse(iso)!!) }.getOrDefault("unknown")
+        }
+    }
+
     // --- helper ---
 
     private fun startOfTodayUtcIso(): String {
         val cal = Calendar.getInstance()
+        cal.set(Calendar.HOUR_OF_DAY, 0)
+        cal.set(Calendar.MINUTE, 0)
+        cal.set(Calendar.SECOND, 0)
+        cal.set(Calendar.MILLISECOND, 0)
+        val fmt = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US)
+        fmt.timeZone = TimeZone.getTimeZone("UTC")
+        return fmt.format(Date(cal.timeInMillis))
+    }
+
+    private fun startOf7DaysAgoUtcIso(): String {
+        val cal = Calendar.getInstance()
+        cal.add(Calendar.DAY_OF_YEAR, -6) // hari ini + 6 hari ke belakang = 7 hari
         cal.set(Calendar.HOUR_OF_DAY, 0)
         cal.set(Calendar.MINUTE, 0)
         cal.set(Calendar.SECOND, 0)
